@@ -1,0 +1,49 @@
+LOG FILE STARTED
+
+LOGS:
+	json parsing result: success: 571 fail: 4
+	<team:FIRST> <type:POLICE> <id:8> <nodeId:1> <balance:100.0>
+	<team:SECOND> <type:POLICE> <id:10> <nodeId:1> <balance:100.0>
+	<team:SECOND> <type:POLICE> <id:15> <nodeId:1> <balance:100.0>
+	<team:FIRST> <type:POLICE> <id:6> <nodeId:1> <balance:100.0>
+	<team:SECOND> <type:POLICE> <id:14> <nodeId:1> <balance:100.0>
+	<team:FIRST> <type:POLICE> <id:5> <nodeId:1> <balance:100.0>
+	<team:SECOND> <type:POLICE> <id:16> <nodeId:1> <balance:100.0>
+	<team:FIRST> <type:POLICE> <id:3> <nodeId:1> <balance:100.0>
+	<team:FIRST> <type:POLICE> <id:4> <nodeId:1> <balance:100.0>
+	<team:SECOND> <type:POLICE> <id:11> <nodeId:1> <balance:100.0>
+	<team:SECOND> <type:POLICE> <id:13> <nodeId:1> <balance:100.0>
+	<team:FIRST> <type:POLICE> <id:7> <nodeId:1> <balance:100.0>
+	<team:SECOND> <type:POLICE> <id:12> <nodeId:1> <balance:100.0>
+	<team:FIRST> <type:THIEF> <id:1> <nodeId:7> <balance:100.0>
+	<team:SECOND> <type:THIEF> <id:2> <nodeId:7> <balance:100.0>
+	<team:FIRST> <type:POLICE> <id:9> <nodeId:1> <balance:100.0>
+	Nodes Coordination: [-292.4294,-220.49223,294.4222,237.6171]
+
+ERRORS:
+	Registered gRPC service: ir.sharif.aic.hideandseek.api.grpc.GameHandler, bean: gameHandlerApiV1, class: ir.sharif.aic.hideandseek.api.GameHandlerApiV1
+
+	Registered gRPC service: grpc.health.v1.Health, bean: grpcHealthService, class: io.grpc.protobuf.services.HealthServiceImpl
+
+	Registered gRPC service: grpc.reflection.v1alpha.ServerReflection, bean: protoReflectionService, class: io.grpc.protobuf.services.ProtoReflectionService
+
+	gRPC Server started, listening on address: *, port: 7000
+
+	Detected grpc-netty-shaded: Creating ShadedNettyGrpcServerFactory
+	Client error : Picked up _JAVA_OPTIONS: -Dawt.useSystemAAFontSettings=on -Dswing.aatext=true
+	Client error : Picked up _JAVA_OPTIONS: -Dawt.useSystemAAFontSettings=on -Dswing.aatext=true
+	Client error : Picked up _JAVA_OPTIONS: -Dawt.useSystemAAFontSettings=on -Dswing.aatext=true
+	Client error : Picked up _JAVA_OPTIONS: -Dawt.useSystemAAFontSettings=on -Dswing.aatext=true
+	Client error : Picked up _JAVA_OPTIONS: -Dawt.useSystemAAFontSettings=on -Dswing.aatext=true
+	Client error : Picked up _JAVA_OPTIONS: -Dawt.useSystemAAFontSettings=on -Dswing.aatext=true
+	Client error : Picked up _JAVA_OPTIONS: -Dawt.useSystemAAFontSettings=on -Dswing.aatext=true
+	Client error : Picked up _JAVA_OPTIONS: -Dawt.useSystemAAFontSettings=on -Dswing.aatext=true
+	Client error : Picked up _JAVA_OPTIONS: -Dawt.useSystemAAFontSettings=on -Dswing.aatext=true
+	Client error : Picked up _JAVA_OPTIONS: -Dawt.useSystemAAFontSettings=on -Dswing.aatext=true
+	Client error : Picked up _JAVA_OPTIONS: -Dawt.useSystemAAFontSettings=on -Dswing.aatext=true
+	Client error : Picked up _JAVA_OPTIONS: -Dawt.useSystemAAFontSettings=on -Dswing.aatext=true
+	Client error : Picked up _JAVA_OPTIONS: -Dawt.useSystemAAFontSettings=on -Dswing.aatext=true
+	Client error : Picked up _JAVA_OPTIONS: -Dawt.useSystemAAFontSettings=on -Dswing.aatext=true
+	Client error : Picked up _JAVA_OPTIONS: -Dawt.useSystemAAFontSettings=on -Dswing.aatext=true
+	Client error : Picked up _JAVA_OPTIONS: -Dawt.useSystemAAFontSettings=on -Dswing.aatext=true
+	Completed gRPC server shutdown
