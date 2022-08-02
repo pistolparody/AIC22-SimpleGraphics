@@ -1,23 +1,676 @@
 LOG FILE STARTED
 
 LOGS:
-	json parsing result: success: 571 fail: 4
-	<team:FIRST> <type:POLICE> <id:8> <nodeId:1> <balance:100.0>
-	<team:SECOND> <type:POLICE> <id:10> <nodeId:1> <balance:100.0>
-	<team:SECOND> <type:POLICE> <id:15> <nodeId:1> <balance:100.0>
-	<team:FIRST> <type:POLICE> <id:6> <nodeId:1> <balance:100.0>
-	<team:SECOND> <type:POLICE> <id:14> <nodeId:1> <balance:100.0>
-	<team:FIRST> <type:POLICE> <id:5> <nodeId:1> <balance:100.0>
-	<team:SECOND> <type:POLICE> <id:16> <nodeId:1> <balance:100.0>
-	<team:FIRST> <type:POLICE> <id:3> <nodeId:1> <balance:100.0>
-	<team:FIRST> <type:POLICE> <id:4> <nodeId:1> <balance:100.0>
-	<team:SECOND> <type:POLICE> <id:11> <nodeId:1> <balance:100.0>
-	<team:SECOND> <type:POLICE> <id:13> <nodeId:1> <balance:100.0>
-	<team:FIRST> <type:POLICE> <id:7> <nodeId:1> <balance:100.0>
-	<team:SECOND> <type:POLICE> <id:12> <nodeId:1> <balance:100.0>
-	<team:FIRST> <type:THIEF> <id:1> <nodeId:7> <balance:100.0>
-	<team:SECOND> <type:THIEF> <id:2> <nodeId:7> <balance:100.0>
-	<team:FIRST> <type:POLICE> <id:9> <nodeId:1> <balance:100.0>
+	json parsing result: success: 521 fail: 24
+	<team:FIRST> <type:POLICE> <id:4> <nodeId:1> <balance:100.0> turnCounter:0
+	<team:SECOND> <type:POLICE> <id:14> <nodeId:1> <balance:100.0> turnCounter:0
+	<team:FIRST> <type:POLICE> <id:8> <nodeId:1> <balance:100.0> turnCounter:0
+	<team:FIRST> <type:POLICE> <id:3> <nodeId:1> <balance:100.0> turnCounter:0
+	<team:FIRST> <type:POLICE> <id:6> <nodeId:1> <balance:100.0> turnCounter:0
+	<team:SECOND> <type:THIEF> <id:2> <nodeId:46> <balance:100.0> turnCounter:0
+	<team:FIRST> <type:POLICE> <id:9> <nodeId:1> <balance:100.0> turnCounter:0
+	<team:SECOND> <type:POLICE> <id:15> <nodeId:1> <balance:100.0> turnCounter:0
+	<team:FIRST> <type:POLICE> <id:5> <nodeId:1> <balance:100.0> turnCounter:0
+	<team:SECOND> <type:POLICE> <id:12> <nodeId:1> <balance:100.0> turnCounter:0
+	<team:FIRST> <type:POLICE> <id:7> <nodeId:1> <balance:100.0> turnCounter:0
+	<team:SECOND> <type:POLICE> <id:10> <nodeId:1> <balance:100.0> turnCounter:0
+	<team:SECOND> <type:POLICE> <id:13> <nodeId:1> <balance:100.0> turnCounter:0
+	<team:FIRST> <type:THIEF> <id:1> <nodeId:46> <balance:100.0> turnCounter:0
+	<team:SECOND> <type:POLICE> <id:11> <nodeId:1> <balance:100.0> turnCounter:0
+	<team:SECOND> <type:POLICE> <id:16> <nodeId:1> <balance:100.0> turnCounter:0
+	
+	<fromStatus:PENDING> <toStatus:ONGOING> <timeStamp:1659472847195> turnCounter:1
+
+		< AGENT_MOVEMENT: <agentId:2> <fromNodeId:46> <toNodeId:34> <balance: 75.0> <price:25.0> <timeStamp:1659472847272> <turnNumber:1> > turnCounter:1
+		< AGENT_MOVEMENT: <agentId:1> <fromNodeId:46> <toNodeId:33> <balance: 100.0> <price:0.0> <timeStamp:1659472847291> <turnNumber:1> > turnCounter:1
+	
+	< TURN_CHANGE: <toTurnNumber:2> <toTurn:POLICE_TURN> <isVisible:false> <timeStamp:1659472848405> > turnCounter:2
+
+		< AGENT_MOVEMENT: <agentId:10> <fromNodeId:1> <toNodeId:9> <balance: 100.0> <price:0.0> <timeStamp:1659472848423> <turnNumber:2> > turnCounter:2
+		< AGENT_MOVEMENT: <agentId:14> <fromNodeId:1> <toNodeId:8> <balance: 100.0> <price:0.0> <timeStamp:1659472848424> <turnNumber:2> > turnCounter:2
+		< AGENT_MOVEMENT: <agentId:13> <fromNodeId:1> <toNodeId:44> <balance: 75.0> <price:25.0> <timeStamp:1659472848426> <turnNumber:2> > turnCounter:2
+		< AGENT_MOVEMENT: <agentId:12> <fromNodeId:1> <toNodeId:9> <balance: 100.0> <price:0.0> <timeStamp:1659472848426> <turnNumber:2> > turnCounter:2
+		< AGENT_MOVEMENT: <agentId:6> <fromNodeId:1> <toNodeId:44> <balance: 75.0> <price:25.0> <timeStamp:1659472848427> <turnNumber:2> > turnCounter:2
+		< AGENT_MOVEMENT: <agentId:8> <fromNodeId:1> <toNodeId:44> <balance: 75.0> <price:25.0> <timeStamp:1659472848427> <turnNumber:2> > turnCounter:2
+		< AGENT_MOVEMENT: <agentId:11> <fromNodeId:1> <toNodeId:46> <balance: 50.0> <price:50.0> <timeStamp:1659472848427> <turnNumber:2> > turnCounter:2
+		< AGENT_MOVEMENT: <agentId:7> <fromNodeId:1> <toNodeId:8> <balance: 100.0> <price:0.0> <timeStamp:1659472848427> <turnNumber:2> > turnCounter:2
+		< AGENT_MOVEMENT: <agentId:4> <fromNodeId:1> <toNodeId:9> <balance: 100.0> <price:0.0> <timeStamp:1659472848428> <turnNumber:2> > turnCounter:2
+		< AGENT_MOVEMENT: <agentId:15> <fromNodeId:1> <toNodeId:9> <balance: 100.0> <price:0.0> <timeStamp:1659472848431> <turnNumber:2> > turnCounter:2
+		< AGENT_MOVEMENT: <agentId:3> <fromNodeId:1> <toNodeId:8> <balance: 100.0> <price:0.0> <timeStamp:1659472848432> <turnNumber:2> > turnCounter:2
+		< AGENT_MOVEMENT: <agentId:5> <fromNodeId:1> <toNodeId:44> <balance: 75.0> <price:25.0> <timeStamp:1659472848432> <turnNumber:2> > turnCounter:2
+		< AGENT_MOVEMENT: <agentId:16> <fromNodeId:1> <toNodeId:9> <balance: 100.0> <price:0.0> <timeStamp:1659472848432> <turnNumber:2> > turnCounter:2
+		< AGENT_MOVEMENT: <agentId:9> <fromNodeId:1> <toNodeId:44> <balance: 75.0> <price:25.0> <timeStamp:1659472848433> <turnNumber:2> > turnCounter:2
+	
+	< TURN_CHANGE: <toTurnNumber:3> <toTurn:THIEF_TURN> <isVisible:false> <timeStamp:1659472849457> > turnCounter:3
+
+		< AGENT_MOVEMENT: <agentId:1> <fromNodeId:33> <toNodeId:21> <balance: 110.0> <price:0.0> <timeStamp:1659472849475> <turnNumber:3> > turnCounter:3
+		< AGENT_MOVEMENT: <agentId:2> <fromNodeId:34> <toNodeId:10> <balance: 85.0> <price:0.0> <timeStamp:1659472849487> <turnNumber:3> > turnCounter:3
+	
+	< TURN_CHANGE: <toTurnNumber:4> <toTurn:POLICE_TURN> <isVisible:false> <timeStamp:1659472850689> > turnCounter:4
+
+		< AGENT_MOVEMENT: <agentId:11> <fromNodeId:46> <toNodeId:34> <balance: 45.0> <price:25.0> <timeStamp:1659472850708> <turnNumber:4> > turnCounter:4
+		< AGENT_MOVEMENT: <agentId:12> <fromNodeId:9> <toNodeId:20> <balance: 120.0> <price:0.0> <timeStamp:1659472850708> <turnNumber:4> > turnCounter:4
+		< AGENT_MOVEMENT: <agentId:15> <fromNodeId:9> <toNodeId:1> <balance: 120.0> <price:0.0> <timeStamp:1659472850708> <turnNumber:4> > turnCounter:4
+		< AGENT_MOVEMENT: <agentId:5> <fromNodeId:44> <toNodeId:1> <balance: 70.0> <price:25.0> <timeStamp:1659472850709> <turnNumber:4> > turnCounter:4
+		< AGENT_MOVEMENT: <agentId:16> <fromNodeId:9> <toNodeId:19> <balance: 120.0> <price:0.0> <timeStamp:1659472850709> <turnNumber:4> > turnCounter:4
+		< AGENT_MOVEMENT: <agentId:4> <fromNodeId:9> <toNodeId:19> <balance: 120.0> <price:0.0> <timeStamp:1659472850710> <turnNumber:4> > turnCounter:4
+		< AGENT_MOVEMENT: <agentId:7> <fromNodeId:8> <toNodeId:19> <balance: 120.0> <price:0.0> <timeStamp:1659472850710> <turnNumber:4> > turnCounter:4
+		< AGENT_MOVEMENT: <agentId:9> <fromNodeId:44> <toNodeId:58> <balance: 95.0> <price:0.0> <timeStamp:1659472850711> <turnNumber:4> > turnCounter:4
+		< AGENT_MOVEMENT: <agentId:10> <fromNodeId:9> <toNodeId:20> <balance: 120.0> <price:0.0> <timeStamp:1659472850711> <turnNumber:4> > turnCounter:4
+		< AGENT_MOVEMENT: <agentId:8> <fromNodeId:44> <toNodeId:31> <balance: 95.0> <price:0.0> <timeStamp:1659472850711> <turnNumber:4> > turnCounter:4
+		< AGENT_MOVEMENT: <agentId:13> <fromNodeId:44> <toNodeId:1> <balance: 70.0> <price:25.0> <timeStamp:1659472850711> <turnNumber:4> > turnCounter:4
+		< AGENT_MOVEMENT: <agentId:14> <fromNodeId:8> <toNodeId:19> <balance: 120.0> <price:0.0> <timeStamp:1659472850713> <turnNumber:4> > turnCounter:4
+		< AGENT_MOVEMENT: <agentId:3> <fromNodeId:8> <toNodeId:1> <balance: 120.0> <price:0.0> <timeStamp:1659472850714> <turnNumber:4> > turnCounter:4
+		< AGENT_MOVEMENT: <agentId:6> <fromNodeId:44> <toNodeId:31> <balance: 95.0> <price:0.0> <timeStamp:1659472850716> <turnNumber:4> > turnCounter:4
+	
+	< TURN_CHANGE: <toTurnNumber:5> <toTurn:THIEF_TURN> <isVisible:true> <timeStamp:1659472851834> > turnCounter:5
+
+		< AGENT_MOVEMENT: <agentId:2> <fromNodeId:10> <toNodeId:2> <balance: 105.0> <price:0.0> <timeStamp:1659472851849> <turnNumber:5> > turnCounter:5
+		< AGENT_MOVEMENT: <agentId:1> <fromNodeId:21> <toNodeId:21> <balance: 130.0> <price:0.0> <timeStamp:1659472851864> <turnNumber:5> > turnCounter:5
+	
+	< TURN_CHANGE: <toTurnNumber:6> <toTurn:POLICE_TURN> <isVisible:false> <timeStamp:1659472853005> > turnCounter:6
+
+		< AGENT_MOVEMENT: <agentId:4> <fromNodeId:19> <toNodeId:8> <balance: 140.0> <price:0.0> <timeStamp:1659472853020> <turnNumber:6> > turnCounter:6
+		< AGENT_MOVEMENT: <agentId:9> <fromNodeId:58> <toNodeId:74> <balance: 115.0> <price:0.0> <timeStamp:1659472853020> <turnNumber:6> > turnCounter:6
+		< AGENT_MOVEMENT: <agentId:7> <fromNodeId:19> <toNodeId:9> <balance: 140.0> <price:0.0> <timeStamp:1659472853023> <turnNumber:6> > turnCounter:6
+		< AGENT_MOVEMENT: <agentId:6> <fromNodeId:31> <toNodeId:18> <balance: 115.0> <price:0.0> <timeStamp:1659472853026> <turnNumber:6> > turnCounter:6
+		< AGENT_MOVEMENT: <agentId:3> <fromNodeId:1> <toNodeId:9> <balance: 140.0> <price:0.0> <timeStamp:1659472853026> <turnNumber:6> > turnCounter:6
+		< AGENT_MOVEMENT: <agentId:15> <fromNodeId:1> <toNodeId:9> <balance: 140.0> <price:0.0> <timeStamp:1659472853026> <turnNumber:6> > turnCounter:6
+		< AGENT_MOVEMENT: <agentId:8> <fromNodeId:31> <toNodeId:44> <balance: 115.0> <price:0.0> <timeStamp:1659472853026> <turnNumber:6> > turnCounter:6
+		< AGENT_MOVEMENT: <agentId:5> <fromNodeId:1> <toNodeId:9> <balance: 90.0> <price:0.0> <timeStamp:1659472853027> <turnNumber:6> > turnCounter:6
+		< AGENT_MOVEMENT: <agentId:16> <fromNodeId:19> <toNodeId:32> <balance: 140.0> <price:0.0> <timeStamp:1659472853027> <turnNumber:6> > turnCounter:6
+		< AGENT_MOVEMENT: <agentId:14> <fromNodeId:19> <toNodeId:9> <balance: 140.0> <price:0.0> <timeStamp:1659472853027> <turnNumber:6> > turnCounter:6
+		< AGENT_MOVEMENT: <agentId:12> <fromNodeId:20> <toNodeId:9> <balance: 140.0> <price:0.0> <timeStamp:1659472853027> <turnNumber:6> > turnCounter:6
+		< AGENT_MOVEMENT: <agentId:10> <fromNodeId:20> <toNodeId:33> <balance: 140.0> <price:0.0> <timeStamp:1659472853027> <turnNumber:6> > turnCounter:6
+		< AGENT_MOVEMENT: <agentId:13> <fromNodeId:1> <toNodeId:9> <balance: 90.0> <price:0.0> <timeStamp:1659472853027> <turnNumber:6> > turnCounter:6
+		< AGENT_MOVEMENT: <agentId:11> <fromNodeId:34> <toNodeId:47> <balance: 65.0> <price:0.0> <timeStamp:1659472853027> <turnNumber:6> > turnCounter:6
+	
+	< TURN_CHANGE: <toTurnNumber:7> <toTurn:THIEF_TURN> <isVisible:false> <timeStamp:1659472854154> > turnCounter:7
+
+		< AGENT_MOVEMENT: <agentId:2> <fromNodeId:2> <toNodeId:10> <balance: 125.0> <price:0.0> <timeStamp:1659472854170> <turnNumber:7> > turnCounter:7
+		< AGENT_MOVEMENT: <agentId:1> <fromNodeId:21> <toNodeId:10> <balance: 150.0> <price:0.0> <timeStamp:1659472854170> <turnNumber:7> > turnCounter:7
+	
+	< TURN_CHANGE: <toTurnNumber:8> <toTurn:POLICE_TURN> <isVisible:false> <timeStamp:1659472855317> > turnCounter:8
+
+		< AGENT_MOVEMENT: <agentId:4> <fromNodeId:8> <toNodeId:18> <balance: 160.0> <price:0.0> <timeStamp:1659472855330> <turnNumber:8> > turnCounter:8
+		< AGENT_MOVEMENT: <agentId:7> <fromNodeId:9> <toNodeId:1> <balance: 160.0> <price:0.0> <timeStamp:1659472855331> <turnNumber:8> > turnCounter:8
+		< AGENT_MOVEMENT: <agentId:16> <fromNodeId:32> <toNodeId:19> <balance: 160.0> <price:0.0> <timeStamp:1659472855332> <turnNumber:8> > turnCounter:8
+		< AGENT_MOVEMENT: <agentId:11> <fromNodeId:47> <toNodeId:46> <balance: 85.0> <price:0.0> <timeStamp:1659472855333> <turnNumber:8> > turnCounter:8
+		< AGENT_MOVEMENT: <agentId:12> <fromNodeId:9> <toNodeId:1> <balance: 160.0> <price:0.0> <timeStamp:1659472855333> <turnNumber:8> > turnCounter:8
+		< AGENT_MOVEMENT: <agentId:6> <fromNodeId:18> <toNodeId:8> <balance: 135.0> <price:0.0> <timeStamp:1659472855334> <turnNumber:8> > turnCounter:8
+		< AGENT_MOVEMENT: <agentId:5> <fromNodeId:9> <toNodeId:20> <balance: 110.0> <price:0.0> <timeStamp:1659472855334> <turnNumber:8> > turnCounter:8
+		< AGENT_MOVEMENT: <agentId:14> <fromNodeId:9> <toNodeId:19> <balance: 160.0> <price:0.0> <timeStamp:1659472855334> <turnNumber:8> > turnCounter:8
+		< AGENT_MOVEMENT: <agentId:15> <fromNodeId:9> <toNodeId:19> <balance: 160.0> <price:0.0> <timeStamp:1659472855335> <turnNumber:8> > turnCounter:8
+		< AGENT_MOVEMENT: <agentId:9> <fromNodeId:74> <toNodeId:73> <balance: 135.0> <price:0.0> <timeStamp:1659472855335> <turnNumber:8> > turnCounter:8
+		< AGENT_MOVEMENT: <agentId:13> <fromNodeId:9> <toNodeId:1> <balance: 110.0> <price:0.0> <timeStamp:1659472855335> <turnNumber:8> > turnCounter:8
+		< AGENT_MOVEMENT: <agentId:8> <fromNodeId:44> <toNodeId:31> <balance: 135.0> <price:0.0> <timeStamp:1659472855337> <turnNumber:8> > turnCounter:8
+		< AGENT_MOVEMENT: <agentId:3> <fromNodeId:9> <toNodeId:19> <balance: 160.0> <price:0.0> <timeStamp:1659472855338> <turnNumber:8> > turnCounter:8
+		< AGENT_MOVEMENT: <agentId:10> <fromNodeId:33> <toNodeId:21> <balance: 160.0> <price:0.0> <timeStamp:1659472855340> <turnNumber:8> > turnCounter:8
+	
+	< TURN_CHANGE: <toTurnNumber:9> <toTurn:THIEF_TURN> <isVisible:false> <timeStamp:1659472856417> > turnCounter:9
+
+		< AGENT_MOVEMENT: <agentId:1> <fromNodeId:10> <toNodeId:2> <balance: 170.0> <price:0.0> <timeStamp:1659472856429> <turnNumber:9> > turnCounter:9
+		< AGENT_MOVEMENT: <agentId:2> <fromNodeId:10> <toNodeId:21> <balance: 145.0> <price:0.0> <timeStamp:1659472856429> <turnNumber:9> > turnCounter:9
+	
+	< TURN_CHANGE: <toTurnNumber:10> <toTurn:POLICE_TURN> <isVisible:true> <timeStamp:1659472857757> > turnCounter:10
+
+		< AGENT_MOVEMENT: <agentId:4> <fromNodeId:18> <toNodeId:31> <balance: 180.0> <price:0.0> <timeStamp:1659472857770> <turnNumber:10> > turnCounter:10
+		< AGENT_MOVEMENT: <agentId:10> <fromNodeId:21> <toNodeId:10> <balance: 180.0> <price:0.0> <timeStamp:1659472857770> <turnNumber:10> > turnCounter:10
+		< AGENT_MOVEMENT: <agentId:11> <fromNodeId:46> <toNodeId:61> <balance: 105.0> <price:0.0> <timeStamp:1659472857770> <turnNumber:10> > turnCounter:10
+		< AGENT_MOVEMENT: <agentId:13> <fromNodeId:1> <toNodeId:9> <balance: 130.0> <price:0.0> <timeStamp:1659472857771> <turnNumber:10> > turnCounter:10
+		< AGENT_MOVEMENT: <agentId:16> <fromNodeId:19> <toNodeId:32> <balance: 180.0> <price:0.0> <timeStamp:1659472857771> <turnNumber:10> > turnCounter:10
+		< AGENT_MOVEMENT: <agentId:12> <fromNodeId:1> <toNodeId:8> <balance: 180.0> <price:0.0> <timeStamp:1659472857773> <turnNumber:10> > turnCounter:10
+		< AGENT_MOVEMENT: <agentId:7> <fromNodeId:1> <toNodeId:8> <balance: 180.0> <price:0.0> <timeStamp:1659472857773> <turnNumber:10> > turnCounter:10
+		< AGENT_MOVEMENT: <agentId:5> <fromNodeId:20> <toNodeId:2> <balance: 130.0> <price:0.0> <timeStamp:1659472857774> <turnNumber:10> > turnCounter:10
+		< AGENT_MOVEMENT: <agentId:6> <fromNodeId:8> <toNodeId:18> <balance: 155.0> <price:0.0> <timeStamp:1659472857775> <turnNumber:10> > turnCounter:10
+		< AGENT_MOVEMENT: <agentId:8> <fromNodeId:31> <toNodeId:43> <balance: 155.0> <price:0.0> <timeStamp:1659472857779> <turnNumber:10> > turnCounter:10
+		< AGENT_MOVEMENT: <agentId:3> <fromNodeId:19> <toNodeId:8> <balance: 180.0> <price:0.0> <timeStamp:1659472857781> <turnNumber:10> > turnCounter:10
+		< AGENT_MOVEMENT: <agentId:9> <fromNodeId:73> <toNodeId:74> <balance: 155.0> <price:0.0> <timeStamp:1659472857781> <turnNumber:10> > turnCounter:10
+		< AGENT_MOVEMENT: <agentId:14> <fromNodeId:19> <toNodeId:32> <balance: 180.0> <price:0.0> <timeStamp:1659472857781> <turnNumber:10> > turnCounter:10
+		< AGENT_MOVEMENT: <agentId:15> <fromNodeId:19> <toNodeId:32> <balance: 180.0> <price:0.0> <timeStamp:1659472857782> <turnNumber:10> > turnCounter:10
+	
+	< TURN_CHANGE: <toTurnNumber:11> <toTurn:THIEF_TURN> <isVisible:false> <timeStamp:1659472859154> > turnCounter:11
+
+		< AGENT_MOVEMENT: <agentId:2> <fromNodeId:21> <toNodeId:33> <balance: 165.0> <price:0.0> <timeStamp:1659472859165> <turnNumber:11> > turnCounter:11
+		< AGENT_MOVEMENT: <agentId:1> <fromNodeId:2> <toNodeId:2> <balance: 190.0> <price:0.0> <timeStamp:1659472859165> <turnNumber:11> > turnCounter:11
+	
+	< TURN_CHANGE: <toTurnNumber:12> <toTurn:POLICE_TURN> <isVisible:false> <timeStamp:1659472860354> > turnCounter:12
+
+		< AGENT_MOVEMENT: <agentId:5> <fromNodeId:2> <toNodeId:10> <balance: 150.0> <price:0.0> <timeStamp:1659472860364> <turnNumber:12> > turnCounter:12
+		< AGENT_MOVEMENT: <agentId:13> <fromNodeId:9> <toNodeId:19> <balance: 150.0> <price:0.0> <timeStamp:1659472860364> <turnNumber:12> > turnCounter:12
+		< AGENT_MOVEMENT: <agentId:7> <fromNodeId:8> <toNodeId:1> <balance: 200.0> <price:0.0> <timeStamp:1659472860365> <turnNumber:12> > turnCounter:12
+		< AGENT_MOVEMENT: <agentId:12> <fromNodeId:8> <toNodeId:19> <balance: 200.0> <price:0.0> <timeStamp:1659472860365> <turnNumber:12> > turnCounter:12
+		< AGENT_MOVEMENT: <agentId:16> <fromNodeId:32> <toNodeId:45> <balance: 200.0> <price:0.0> <timeStamp:1659472860365> <turnNumber:12> > turnCounter:12
+		< AGENT_MOVEMENT: <agentId:10> <fromNodeId:10> <toNodeId:34> <balance: 200.0> <price:0.0> <timeStamp:1659472860366> <turnNumber:12> > turnCounter:12
+		< AGENT_MOVEMENT: <agentId:11> <fromNodeId:61> <toNodeId:46> <balance: 125.0> <price:0.0> <timeStamp:1659472860366> <turnNumber:12> > turnCounter:12
+		< AGENT_MOVEMENT: <agentId:9> <fromNodeId:74> <toNodeId:92> <balance: 175.0> <price:0.0> <timeStamp:1659472860367> <turnNumber:12> > turnCounter:12
+		< AGENT_MOVEMENT: <agentId:6> <fromNodeId:18> <toNodeId:43> <balance: 175.0> <price:0.0> <timeStamp:1659472860367> <turnNumber:12> > turnCounter:12
+		< AGENT_MOVEMENT: <agentId:4> <fromNodeId:31> <toNodeId:44> <balance: 200.0> <price:0.0> <timeStamp:1659472860367> <turnNumber:12> > turnCounter:12
+		< AGENT_MOVEMENT: <agentId:3> <fromNodeId:8> <toNodeId:19> <balance: 200.0> <price:0.0> <timeStamp:1659472860367> <turnNumber:12> > turnCounter:12
+		< AGENT_MOVEMENT: <agentId:15> <fromNodeId:32> <toNodeId:33> <balance: 200.0> <price:0.0> <timeStamp:1659472860368> <turnNumber:12> > turnCounter:12
+		< AGENT_MOVEMENT: <agentId:14> <fromNodeId:32> <toNodeId:45> <balance: 200.0> <price:0.0> <timeStamp:1659472860370> <turnNumber:12> > turnCounter:12
+		< AGENT_MOVEMENT: <agentId:8> <fromNodeId:43> <toNodeId:57> <balance: 175.0> <price:0.0> <timeStamp:1659472860371> <turnNumber:12> > turnCounter:12
+	
+	< TURN_CHANGE: <toTurnNumber:13> <toTurn:THIEF_TURN> <isVisible:false> <timeStamp:1659472861460> > turnCounter:13
+
+		< AGENT_MOVEMENT: <agentId:2> <fromNodeId:33> <toNodeId:20> <balance: 185.0> <price:0.0> <timeStamp:1659472861474> <turnNumber:13> > turnCounter:13
+		< AGENT_MOVEMENT: <agentId:1> <fromNodeId:2> <toNodeId:2> <balance: 210.0> <price:0.0> <timeStamp:1659472861475> <turnNumber:13> > turnCounter:13
+	
+	< TURN_CHANGE: <toTurnNumber:14> <toTurn:POLICE_TURN> <isVisible:false> <timeStamp:1659472862582> > turnCounter:14
+
+		< AGENT_MOVEMENT: <agentId:7> <fromNodeId:1> <toNodeId:9> <balance: 220.0> <price:0.0> <timeStamp:1659472862593> <turnNumber:14> > turnCounter:14
+		< AGENT_MOVEMENT: <agentId:10> <fromNodeId:34> <toNodeId:10> <balance: 220.0> <price:0.0> <timeStamp:1659472862593> <turnNumber:14> > turnCounter:14
+		< AGENT_MOVEMENT: <agentId:16> <fromNodeId:45> <toNodeId:46> <balance: 220.0> <price:0.0> <timeStamp:1659472862594> <turnNumber:14> > turnCounter:14
+		< AGENT_MOVEMENT: <agentId:12> <fromNodeId:19> <toNodeId:32> <balance: 220.0> <price:0.0> <timeStamp:1659472862594> <turnNumber:14> > turnCounter:14
+		< AGENT_MOVEMENT: <agentId:11> <fromNodeId:46> <toNodeId:47> <balance: 145.0> <price:0.0> <timeStamp:1659472862594> <turnNumber:14> > turnCounter:14
+		< AGENT_MOVEMENT: <agentId:13> <fromNodeId:19> <toNodeId:9> <balance: 170.0> <price:0.0> <timeStamp:1659472862594> <turnNumber:14> > turnCounter:14
+		< AGENT_MOVEMENT: <agentId:9> <fromNodeId:92> <toNodeId:73> <balance: 195.0> <price:0.0> <timeStamp:1659472862595> <turnNumber:14> > turnCounter:14
+		< AGENT_MOVEMENT: <agentId:14> <fromNodeId:45> <toNodeId:58> <balance: 220.0> <price:0.0> <timeStamp:1659472862595> <turnNumber:14> > turnCounter:14
+		< AGENT_MOVEMENT: <agentId:15> <fromNodeId:33> <toNodeId:21> <balance: 220.0> <price:0.0> <timeStamp:1659472862595> <turnNumber:14> > turnCounter:14
+		< AGENT_MOVEMENT: <agentId:5> <fromNodeId:10> <toNodeId:34> <balance: 170.0> <price:0.0> <timeStamp:1659472862598> <turnNumber:14> > turnCounter:14
+		< AGENT_MOVEMENT: <agentId:4> <fromNodeId:44> <toNodeId:1> <balance: 195.0> <price:25.0> <timeStamp:1659472862599> <turnNumber:14> > turnCounter:14
+		< AGENT_MOVEMENT: <agentId:3> <fromNodeId:19> <toNodeId:8> <balance: 220.0> <price:0.0> <timeStamp:1659472862599> <turnNumber:14> > turnCounter:14
+		< AGENT_MOVEMENT: <agentId:6> <fromNodeId:43> <toNodeId:18> <balance: 195.0> <price:0.0> <timeStamp:1659472862599> <turnNumber:14> > turnCounter:14
+		< AGENT_MOVEMENT: <agentId:8> <fromNodeId:57> <toNodeId:58> <balance: 195.0> <price:0.0> <timeStamp:1659472862600> <turnNumber:14> > turnCounter:14
+	
+	< TURN_CHANGE: <toTurnNumber:15> <toTurn:THIEF_TURN> <isVisible:true> <timeStamp:1659472863673> > turnCounter:15
+
+		< AGENT_MOVEMENT: <agentId:1> <fromNodeId:2> <toNodeId:2> <balance: 230.0> <price:0.0> <timeStamp:1659472863689> <turnNumber:15> > turnCounter:15
+		< AGENT_MOVEMENT: <agentId:2> <fromNodeId:20> <toNodeId:2> <balance: 205.0> <price:0.0> <timeStamp:1659472863690> <turnNumber:15> > turnCounter:15
+	
+	< TURN_CHANGE: <toTurnNumber:16> <toTurn:POLICE_TURN> <isVisible:false> <timeStamp:1659472864807> > turnCounter:16
+
+		< AGENT_MOVEMENT: <agentId:11> <fromNodeId:47> <toNodeId:34> <balance: 165.0> <price:0.0> <timeStamp:1659472864816> <turnNumber:16> > turnCounter:16
+		< AGENT_MOVEMENT: <agentId:7> <fromNodeId:9> <toNodeId:20> <balance: 240.0> <price:0.0> <timeStamp:1659472864816> <turnNumber:16> > turnCounter:16
+		< AGENT_MOVEMENT: <agentId:10> <fromNodeId:10> <toNodeId:11> <balance: 240.0> <price:0.0> <timeStamp:1659472864817> <turnNumber:16> > turnCounter:16
+		< AGENT_MOVEMENT: <agentId:13> <fromNodeId:9> <toNodeId:19> <balance: 190.0> <price:0.0> <timeStamp:1659472864818> <turnNumber:16> > turnCounter:16
+		< AGENT_MOVEMENT: <agentId:6> <fromNodeId:18> <toNodeId:8> <balance: 215.0> <price:0.0> <timeStamp:1659472864818> <turnNumber:16> > turnCounter:16
+		< AGENT_MOVEMENT: <agentId:12> <fromNodeId:32> <toNodeId:33> <balance: 240.0> <price:0.0> <timeStamp:1659472864818> <turnNumber:16> > turnCounter:16
+		< AGENT_MOVEMENT: <agentId:15> <fromNodeId:21> <toNodeId:10> <balance: 240.0> <price:0.0> <timeStamp:1659472864818> <turnNumber:16> > turnCounter:16
+		< AGENT_MOVEMENT: <agentId:16> <fromNodeId:46> <toNodeId:34> <balance: 215.0> <price:25.0> <timeStamp:1659472864818> <turnNumber:16> > turnCounter:16
+		< AGENT_MOVEMENT: <agentId:4> <fromNodeId:1> <toNodeId:8> <balance: 215.0> <price:0.0> <timeStamp:1659472864818> <turnNumber:16> > turnCounter:16
+		< AGENT_MOVEMENT: <agentId:8> <fromNodeId:58> <toNodeId:45> <balance: 215.0> <price:0.0> <timeStamp:1659472864819> <turnNumber:16> > turnCounter:16
+		< AGENT_MOVEMENT: <agentId:14> <fromNodeId:58> <toNodeId:74> <balance: 240.0> <price:0.0> <timeStamp:1659472864820> <turnNumber:16> > turnCounter:16
+		< AGENT_MOVEMENT: <agentId:9> <fromNodeId:73> <toNodeId:92> <balance: 215.0> <price:0.0> <timeStamp:1659472864821> <turnNumber:16> > turnCounter:16
+		< AGENT_MOVEMENT: <agentId:5> <fromNodeId:34> <toNodeId:48> <balance: 190.0> <price:0.0> <timeStamp:1659472864822> <turnNumber:16> > turnCounter:16
+		< AGENT_MOVEMENT: <agentId:3> <fromNodeId:8> <toNodeId:18> <balance: 240.0> <price:0.0> <timeStamp:1659472864827> <turnNumber:16> > turnCounter:16
+	
+	< TURN_CHANGE: <toTurnNumber:17> <toTurn:THIEF_TURN> <isVisible:false> <timeStamp:1659472865892> > turnCounter:17
+
+		< AGENT_MOVEMENT: <agentId:1> <fromNodeId:2> <toNodeId:2> <balance: 250.0> <price:0.0> <timeStamp:1659472865908> <turnNumber:17> > turnCounter:17
+		< AGENT_MOVEMENT: <agentId:2> <fromNodeId:2> <toNodeId:10> <balance: 225.0> <price:0.0> <timeStamp:1659472865911> <turnNumber:17> > turnCounter:17
+	
+	< TURN_CHANGE: <toTurnNumber:18> <toTurn:POLICE_TURN> <isVisible:false> <timeStamp:1659472867047> > turnCounter:18
+
+		< AGENT_MOVEMENT: <agentId:11> <fromNodeId:34> <toNodeId:22> <balance: 185.0> <price:0.0> <timeStamp:1659472867057> <turnNumber:18> > turnCounter:18
+		< AGENT_MOVEMENT: <agentId:15> <fromNodeId:10> <toNodeId:11> <balance: 260.0> <price:0.0> <timeStamp:1659472867057> <turnNumber:18> > turnCounter:18
+		< AGENT_MOVEMENT: <agentId:7> <fromNodeId:20> <toNodeId:33> <balance: 260.0> <price:0.0> <timeStamp:1659472867057> <turnNumber:18> > turnCounter:18
+		< AGENT_MOVEMENT: <agentId:12> <fromNodeId:33> <toNodeId:20> <balance: 260.0> <price:0.0> <timeStamp:1659472867058> <turnNumber:18> > turnCounter:18
+		< AGENT_MOVEMENT: <agentId:5> <fromNodeId:48> <toNodeId:34> <balance: 210.0> <price:0.0> <timeStamp:1659472867058> <turnNumber:18> > turnCounter:18
+		< AGENT_MOVEMENT: <agentId:10> <fromNodeId:11> <toNodeId:10> <balance: 260.0> <price:0.0> <timeStamp:1659472867058> <turnNumber:18> > turnCounter:18
+		< AGENT_MOVEMENT: <agentId:4> <fromNodeId:8> <toNodeId:19> <balance: 235.0> <price:0.0> <timeStamp:1659472867058> <turnNumber:18> > turnCounter:18
+		< AGENT_MOVEMENT: <agentId:13> <fromNodeId:19> <toNodeId:32> <balance: 210.0> <price:0.0> <timeStamp:1659472867058> <turnNumber:18> > turnCounter:18
+		< AGENT_MOVEMENT: <agentId:16> <fromNodeId:34> <toNodeId:46> <balance: 210.0> <price:25.0> <timeStamp:1659472867058> <turnNumber:18> > turnCounter:18
+		< AGENT_MOVEMENT: <agentId:3> <fromNodeId:18> <toNodeId:31> <balance: 260.0> <price:0.0> <timeStamp:1659472867058> <turnNumber:18> > turnCounter:18
+		< AGENT_MOVEMENT: <agentId:9> <fromNodeId:92> <toNodeId:93> <balance: 235.0> <price:0.0> <timeStamp:1659472867060> <turnNumber:18> > turnCounter:18
+		< AGENT_MOVEMENT: <agentId:6> <fromNodeId:8> <toNodeId:18> <balance: 235.0> <price:0.0> <timeStamp:1659472867060> <turnNumber:18> > turnCounter:18
+		< AGENT_MOVEMENT: <agentId:8> <fromNodeId:45> <toNodeId:58> <balance: 235.0> <price:0.0> <timeStamp:1659472867061> <turnNumber:18> > turnCounter:18
+		< AGENT_MOVEMENT: <agentId:14> <fromNodeId:74> <toNodeId:92> <balance: 260.0> <price:0.0> <timeStamp:1659472867061> <turnNumber:18> > turnCounter:18
+	
+	< TURN_CHANGE: <toTurnNumber:19> <toTurn:THIEF_TURN> <isVisible:false> <timeStamp:1659472868129> > turnCounter:19
+
+		< AGENT_MOVEMENT: <agentId:2> <fromNodeId:10> <toNodeId:2> <balance: 245.0> <price:0.0> <timeStamp:1659472868148> <turnNumber:19> > turnCounter:19
+		< AGENT_MOVEMENT: <agentId:1> <fromNodeId:2> <toNodeId:2> <balance: 270.0> <price:0.0> <timeStamp:1659472868148> <turnNumber:19> > turnCounter:19
+	
+	< TURN_CHANGE: <toTurnNumber:20> <toTurn:POLICE_TURN> <isVisible:true> <timeStamp:1659472869230> > turnCounter:20
+
+		< AGENT_MOVEMENT: <agentId:16> <fromNodeId:46> <toNodeId:1> <balance: 180.0> <price:50.0> <timeStamp:1659472869240> <turnNumber:20> > turnCounter:20
+		< AGENT_MOVEMENT: <agentId:11> <fromNodeId:22> <toNodeId:3> <balance: 180.0> <price:25.0> <timeStamp:1659472869240> <turnNumber:20> > turnCounter:20
+		< AGENT_MOVEMENT: <agentId:10> <fromNodeId:10> <toNodeId:34> <balance: 280.0> <price:0.0> <timeStamp:1659472869241> <turnNumber:20> > turnCounter:20
+		< AGENT_MOVEMENT: <agentId:4> <fromNodeId:19> <toNodeId:8> <balance: 255.0> <price:0.0> <timeStamp:1659472869241> <turnNumber:20> > turnCounter:20
+		< AGENT_MOVEMENT: <agentId:12> <fromNodeId:20> <toNodeId:2> <balance: 280.0> <price:0.0> <timeStamp:1659472869242> <turnNumber:20> > turnCounter:20
+		< AGENT_MOVEMENT: <agentId:9> <fromNodeId:93> <toNodeId:92> <balance: 255.0> <price:0.0> <timeStamp:1659472869242> <turnNumber:20> > turnCounter:20
+		< AGENT_MOVEMENT: <agentId:5> <fromNodeId:34> <toNodeId:10> <balance: 230.0> <price:0.0> <timeStamp:1659472869242> <turnNumber:20> > turnCounter:20
+		< AGENT_MOVEMENT: <agentId:13> <fromNodeId:32> <toNodeId:44> <balance: 230.0> <price:0.0> <timeStamp:1659472869243> <turnNumber:20> > turnCounter:20
+		< AGENT_MOVEMENT: <agentId:7> <fromNodeId:33> <toNodeId:32> <balance: 280.0> <price:0.0> <timeStamp:1659472869243> <turnNumber:20> > turnCounter:20
+		< AGENT_MOVEMENT: <agentId:15> <fromNodeId:11> <toNodeId:10> <balance: 280.0> <price:0.0> <timeStamp:1659472869243> <turnNumber:20> > turnCounter:20
+		< AGENT_MOVEMENT: <agentId:8> <fromNodeId:58> <toNodeId:57> <balance: 255.0> <price:0.0> <timeStamp:1659472869245> <turnNumber:20> > turnCounter:20
+		< AGENT_MOVEMENT: <agentId:3> <fromNodeId:31> <toNodeId:18> <balance: 280.0> <price:0.0> <timeStamp:1659472869245> <turnNumber:20> > turnCounter:20
+		< AGENT_MOVEMENT: <agentId:14> <fromNodeId:92> <toNodeId:93> <balance: 280.0> <price:0.0> <timeStamp:1659472869246> <turnNumber:20> > turnCounter:20
+		< AGENT_MOVEMENT: <agentId:6> <fromNodeId:18> <toNodeId:31> <balance: 255.0> <price:0.0> <timeStamp:1659472869248> <turnNumber:20> > turnCounter:20
+	
+	<fromStatus:ONGOING> <toStatus:FINISHED> <timeStamp:1659472869317> turnCounter:20
+
+	
+
+	Agent movements List : <team:FIRST> <type:POLICE> <id:4> <nodeId:1> <balance:100.0>
+
+
+	<nodeId:1> <turnNumber:0> <balance100.0>
+	<nodeId:1> <turnNumber:1> <balance100.0>
+	<nodeId:9> <turnNumber:2> <balance100.0>
+	<nodeId:9> <turnNumber:3> <balance100.0>
+	<nodeId:19> <turnNumber:4> <balance120.0>
+	<nodeId:19> <turnNumber:5> <balance120.0>
+	<nodeId:8> <turnNumber:6> <balance140.0>
+	<nodeId:8> <turnNumber:7> <balance140.0>
+	<nodeId:18> <turnNumber:8> <balance160.0>
+	<nodeId:18> <turnNumber:9> <balance160.0>
+	<nodeId:31> <turnNumber:10> <balance180.0>
+	<nodeId:31> <turnNumber:11> <balance180.0>
+	<nodeId:44> <turnNumber:12> <balance200.0>
+	<nodeId:44> <turnNumber:13> <balance200.0>
+	<nodeId:1> <turnNumber:14> <balance195.0>
+	<nodeId:1> <turnNumber:15> <balance195.0>
+	<nodeId:8> <turnNumber:16> <balance215.0>
+	<nodeId:8> <turnNumber:17> <balance215.0>
+	<nodeId:19> <turnNumber:18> <balance235.0>
+	<nodeId:19> <turnNumber:19> <balance235.0>
+	<nodeId:8> <turnNumber:20> <balance255.0>
+	<nodeId:8> <turnNumber:21> <balance255.0>
+	
+
+	Agent movements List : <team:SECOND> <type:POLICE> <id:14> <nodeId:1> <balance:100.0>
+
+
+	<nodeId:1> <turnNumber:0> <balance100.0>
+	<nodeId:1> <turnNumber:1> <balance100.0>
+	<nodeId:8> <turnNumber:2> <balance100.0>
+	<nodeId:8> <turnNumber:3> <balance100.0>
+	<nodeId:19> <turnNumber:4> <balance120.0>
+	<nodeId:19> <turnNumber:5> <balance120.0>
+	<nodeId:9> <turnNumber:6> <balance140.0>
+	<nodeId:9> <turnNumber:7> <balance140.0>
+	<nodeId:19> <turnNumber:8> <balance160.0>
+	<nodeId:19> <turnNumber:9> <balance160.0>
+	<nodeId:32> <turnNumber:10> <balance180.0>
+	<nodeId:32> <turnNumber:11> <balance180.0>
+	<nodeId:45> <turnNumber:12> <balance200.0>
+	<nodeId:45> <turnNumber:13> <balance200.0>
+	<nodeId:58> <turnNumber:14> <balance220.0>
+	<nodeId:58> <turnNumber:15> <balance220.0>
+	<nodeId:74> <turnNumber:16> <balance240.0>
+	<nodeId:74> <turnNumber:17> <balance240.0>
+	<nodeId:92> <turnNumber:18> <balance260.0>
+	<nodeId:92> <turnNumber:19> <balance260.0>
+	<nodeId:93> <turnNumber:20> <balance280.0>
+	<nodeId:93> <turnNumber:21> <balance280.0>
+	
+
+	Agent movements List : <team:FIRST> <type:POLICE> <id:8> <nodeId:1> <balance:100.0>
+
+
+	<nodeId:1> <turnNumber:0> <balance100.0>
+	<nodeId:1> <turnNumber:1> <balance100.0>
+	<nodeId:44> <turnNumber:2> <balance75.0>
+	<nodeId:44> <turnNumber:3> <balance75.0>
+	<nodeId:31> <turnNumber:4> <balance95.0>
+	<nodeId:31> <turnNumber:5> <balance95.0>
+	<nodeId:44> <turnNumber:6> <balance115.0>
+	<nodeId:44> <turnNumber:7> <balance115.0>
+	<nodeId:31> <turnNumber:8> <balance135.0>
+	<nodeId:31> <turnNumber:9> <balance135.0>
+	<nodeId:43> <turnNumber:10> <balance155.0>
+	<nodeId:43> <turnNumber:11> <balance155.0>
+	<nodeId:57> <turnNumber:12> <balance175.0>
+	<nodeId:57> <turnNumber:13> <balance175.0>
+	<nodeId:58> <turnNumber:14> <balance195.0>
+	<nodeId:58> <turnNumber:15> <balance195.0>
+	<nodeId:45> <turnNumber:16> <balance215.0>
+	<nodeId:45> <turnNumber:17> <balance215.0>
+	<nodeId:58> <turnNumber:18> <balance235.0>
+	<nodeId:58> <turnNumber:19> <balance235.0>
+	<nodeId:57> <turnNumber:20> <balance255.0>
+	<nodeId:57> <turnNumber:21> <balance255.0>
+	
+
+	Agent movements List : <team:FIRST> <type:POLICE> <id:3> <nodeId:1> <balance:100.0>
+
+
+	<nodeId:1> <turnNumber:0> <balance100.0>
+	<nodeId:1> <turnNumber:1> <balance100.0>
+	<nodeId:8> <turnNumber:2> <balance100.0>
+	<nodeId:8> <turnNumber:3> <balance100.0>
+	<nodeId:1> <turnNumber:4> <balance120.0>
+	<nodeId:1> <turnNumber:5> <balance120.0>
+	<nodeId:9> <turnNumber:6> <balance140.0>
+	<nodeId:9> <turnNumber:7> <balance140.0>
+	<nodeId:19> <turnNumber:8> <balance160.0>
+	<nodeId:19> <turnNumber:9> <balance160.0>
+	<nodeId:8> <turnNumber:10> <balance180.0>
+	<nodeId:8> <turnNumber:11> <balance180.0>
+	<nodeId:19> <turnNumber:12> <balance200.0>
+	<nodeId:19> <turnNumber:13> <balance200.0>
+	<nodeId:8> <turnNumber:14> <balance220.0>
+	<nodeId:8> <turnNumber:15> <balance220.0>
+	<nodeId:18> <turnNumber:16> <balance240.0>
+	<nodeId:18> <turnNumber:17> <balance240.0>
+	<nodeId:31> <turnNumber:18> <balance260.0>
+	<nodeId:31> <turnNumber:19> <balance260.0>
+	<nodeId:18> <turnNumber:20> <balance280.0>
+	<nodeId:18> <turnNumber:21> <balance280.0>
+	
+
+	Agent movements List : <team:FIRST> <type:POLICE> <id:6> <nodeId:1> <balance:100.0>
+
+
+	<nodeId:1> <turnNumber:0> <balance100.0>
+	<nodeId:1> <turnNumber:1> <balance100.0>
+	<nodeId:44> <turnNumber:2> <balance75.0>
+	<nodeId:44> <turnNumber:3> <balance75.0>
+	<nodeId:31> <turnNumber:4> <balance95.0>
+	<nodeId:31> <turnNumber:5> <balance95.0>
+	<nodeId:18> <turnNumber:6> <balance115.0>
+	<nodeId:18> <turnNumber:7> <balance115.0>
+	<nodeId:8> <turnNumber:8> <balance135.0>
+	<nodeId:8> <turnNumber:9> <balance135.0>
+	<nodeId:18> <turnNumber:10> <balance155.0>
+	<nodeId:18> <turnNumber:11> <balance155.0>
+	<nodeId:43> <turnNumber:12> <balance175.0>
+	<nodeId:43> <turnNumber:13> <balance175.0>
+	<nodeId:18> <turnNumber:14> <balance195.0>
+	<nodeId:18> <turnNumber:15> <balance195.0>
+	<nodeId:8> <turnNumber:16> <balance215.0>
+	<nodeId:8> <turnNumber:17> <balance215.0>
+	<nodeId:18> <turnNumber:18> <balance235.0>
+	<nodeId:18> <turnNumber:19> <balance235.0>
+	<nodeId:31> <turnNumber:20> <balance255.0>
+	<nodeId:31> <turnNumber:21> <balance255.0>
+	
+
+	Agent movements List : <team:SECOND> <type:THIEF> <id:2> <nodeId:46> <balance:100.0>
+
+
+	<nodeId:46> <turnNumber:0> <balance100.0>
+	<nodeId:34> <turnNumber:1> <balance75.0>
+	<nodeId:34> <turnNumber:2> <balance75.0>
+	<nodeId:10> <turnNumber:3> <balance85.0>
+	<nodeId:10> <turnNumber:4> <balance85.0>
+	<nodeId:2> <turnNumber:5> <balance105.0>
+	<nodeId:2> <turnNumber:6> <balance105.0>
+	<nodeId:10> <turnNumber:7> <balance125.0>
+	<nodeId:10> <turnNumber:8> <balance125.0>
+	<nodeId:21> <turnNumber:9> <balance145.0>
+	<nodeId:21> <turnNumber:10> <balance145.0>
+	<nodeId:33> <turnNumber:11> <balance165.0>
+	<nodeId:33> <turnNumber:12> <balance165.0>
+	<nodeId:20> <turnNumber:13> <balance185.0>
+	<nodeId:20> <turnNumber:14> <balance185.0>
+	<nodeId:2> <turnNumber:15> <balance205.0>
+	<nodeId:2> <turnNumber:16> <balance205.0>
+	<nodeId:10> <turnNumber:17> <balance225.0>
+	<nodeId:10> <turnNumber:18> <balance225.0>
+	<nodeId:2> <turnNumber:19> <balance245.0>
+	<nodeId:2> <turnNumber:20> <balance245.0>
+	
+
+	Agent movements List : <team:FIRST> <type:POLICE> <id:9> <nodeId:1> <balance:100.0>
+
+
+	<nodeId:1> <turnNumber:0> <balance100.0>
+	<nodeId:1> <turnNumber:1> <balance100.0>
+	<nodeId:44> <turnNumber:2> <balance75.0>
+	<nodeId:44> <turnNumber:3> <balance75.0>
+	<nodeId:58> <turnNumber:4> <balance95.0>
+	<nodeId:58> <turnNumber:5> <balance95.0>
+	<nodeId:74> <turnNumber:6> <balance115.0>
+	<nodeId:74> <turnNumber:7> <balance115.0>
+	<nodeId:73> <turnNumber:8> <balance135.0>
+	<nodeId:73> <turnNumber:9> <balance135.0>
+	<nodeId:74> <turnNumber:10> <balance155.0>
+	<nodeId:74> <turnNumber:11> <balance155.0>
+	<nodeId:92> <turnNumber:12> <balance175.0>
+	<nodeId:92> <turnNumber:13> <balance175.0>
+	<nodeId:73> <turnNumber:14> <balance195.0>
+	<nodeId:73> <turnNumber:15> <balance195.0>
+	<nodeId:92> <turnNumber:16> <balance215.0>
+	<nodeId:92> <turnNumber:17> <balance215.0>
+	<nodeId:93> <turnNumber:18> <balance235.0>
+	<nodeId:93> <turnNumber:19> <balance235.0>
+	<nodeId:92> <turnNumber:20> <balance255.0>
+	<nodeId:92> <turnNumber:21> <balance255.0>
+	
+
+	Agent movements List : <team:SECOND> <type:POLICE> <id:15> <nodeId:1> <balance:100.0>
+
+
+	<nodeId:1> <turnNumber:0> <balance100.0>
+	<nodeId:1> <turnNumber:1> <balance100.0>
+	<nodeId:9> <turnNumber:2> <balance100.0>
+	<nodeId:9> <turnNumber:3> <balance100.0>
+	<nodeId:1> <turnNumber:4> <balance120.0>
+	<nodeId:1> <turnNumber:5> <balance120.0>
+	<nodeId:9> <turnNumber:6> <balance140.0>
+	<nodeId:9> <turnNumber:7> <balance140.0>
+	<nodeId:19> <turnNumber:8> <balance160.0>
+	<nodeId:19> <turnNumber:9> <balance160.0>
+	<nodeId:32> <turnNumber:10> <balance180.0>
+	<nodeId:32> <turnNumber:11> <balance180.0>
+	<nodeId:33> <turnNumber:12> <balance200.0>
+	<nodeId:33> <turnNumber:13> <balance200.0>
+	<nodeId:21> <turnNumber:14> <balance220.0>
+	<nodeId:21> <turnNumber:15> <balance220.0>
+	<nodeId:10> <turnNumber:16> <balance240.0>
+	<nodeId:10> <turnNumber:17> <balance240.0>
+	<nodeId:11> <turnNumber:18> <balance260.0>
+	<nodeId:11> <turnNumber:19> <balance260.0>
+	<nodeId:10> <turnNumber:20> <balance280.0>
+	<nodeId:10> <turnNumber:21> <balance280.0>
+	
+
+	Agent movements List : <team:FIRST> <type:POLICE> <id:5> <nodeId:1> <balance:100.0>
+
+
+	<nodeId:1> <turnNumber:0> <balance100.0>
+	<nodeId:1> <turnNumber:1> <balance100.0>
+	<nodeId:44> <turnNumber:2> <balance75.0>
+	<nodeId:44> <turnNumber:3> <balance75.0>
+	<nodeId:1> <turnNumber:4> <balance70.0>
+	<nodeId:1> <turnNumber:5> <balance70.0>
+	<nodeId:9> <turnNumber:6> <balance90.0>
+	<nodeId:9> <turnNumber:7> <balance90.0>
+	<nodeId:20> <turnNumber:8> <balance110.0>
+	<nodeId:20> <turnNumber:9> <balance110.0>
+	<nodeId:2> <turnNumber:10> <balance130.0>
+	<nodeId:2> <turnNumber:11> <balance130.0>
+	<nodeId:10> <turnNumber:12> <balance150.0>
+	<nodeId:10> <turnNumber:13> <balance150.0>
+	<nodeId:34> <turnNumber:14> <balance170.0>
+	<nodeId:34> <turnNumber:15> <balance170.0>
+	<nodeId:48> <turnNumber:16> <balance190.0>
+	<nodeId:48> <turnNumber:17> <balance190.0>
+	<nodeId:34> <turnNumber:18> <balance210.0>
+	<nodeId:34> <turnNumber:19> <balance210.0>
+	<nodeId:10> <turnNumber:20> <balance230.0>
+	<nodeId:10> <turnNumber:21> <balance230.0>
+	
+
+	Agent movements List : <team:SECOND> <type:POLICE> <id:12> <nodeId:1> <balance:100.0>
+
+
+	<nodeId:1> <turnNumber:0> <balance100.0>
+	<nodeId:1> <turnNumber:1> <balance100.0>
+	<nodeId:9> <turnNumber:2> <balance100.0>
+	<nodeId:9> <turnNumber:3> <balance100.0>
+	<nodeId:20> <turnNumber:4> <balance120.0>
+	<nodeId:20> <turnNumber:5> <balance120.0>
+	<nodeId:9> <turnNumber:6> <balance140.0>
+	<nodeId:9> <turnNumber:7> <balance140.0>
+	<nodeId:1> <turnNumber:8> <balance160.0>
+	<nodeId:1> <turnNumber:9> <balance160.0>
+	<nodeId:8> <turnNumber:10> <balance180.0>
+	<nodeId:8> <turnNumber:11> <balance180.0>
+	<nodeId:19> <turnNumber:12> <balance200.0>
+	<nodeId:19> <turnNumber:13> <balance200.0>
+	<nodeId:32> <turnNumber:14> <balance220.0>
+	<nodeId:32> <turnNumber:15> <balance220.0>
+	<nodeId:33> <turnNumber:16> <balance240.0>
+	<nodeId:33> <turnNumber:17> <balance240.0>
+	<nodeId:20> <turnNumber:18> <balance260.0>
+	<nodeId:20> <turnNumber:19> <balance260.0>
+	<nodeId:2> <turnNumber:20> <balance280.0>
+	<nodeId:2> <turnNumber:21> <balance280.0>
+	
+
+	Agent movements List : <team:FIRST> <type:POLICE> <id:7> <nodeId:1> <balance:100.0>
+
+
+	<nodeId:1> <turnNumber:0> <balance100.0>
+	<nodeId:1> <turnNumber:1> <balance100.0>
+	<nodeId:8> <turnNumber:2> <balance100.0>
+	<nodeId:8> <turnNumber:3> <balance100.0>
+	<nodeId:19> <turnNumber:4> <balance120.0>
+	<nodeId:19> <turnNumber:5> <balance120.0>
+	<nodeId:9> <turnNumber:6> <balance140.0>
+	<nodeId:9> <turnNumber:7> <balance140.0>
+	<nodeId:1> <turnNumber:8> <balance160.0>
+	<nodeId:1> <turnNumber:9> <balance160.0>
+	<nodeId:8> <turnNumber:10> <balance180.0>
+	<nodeId:8> <turnNumber:11> <balance180.0>
+	<nodeId:1> <turnNumber:12> <balance200.0>
+	<nodeId:1> <turnNumber:13> <balance200.0>
+	<nodeId:9> <turnNumber:14> <balance220.0>
+	<nodeId:9> <turnNumber:15> <balance220.0>
+	<nodeId:20> <turnNumber:16> <balance240.0>
+	<nodeId:20> <turnNumber:17> <balance240.0>
+	<nodeId:33> <turnNumber:18> <balance260.0>
+	<nodeId:33> <turnNumber:19> <balance260.0>
+	<nodeId:32> <turnNumber:20> <balance280.0>
+	<nodeId:32> <turnNumber:21> <balance280.0>
+	
+
+	Agent movements List : <team:SECOND> <type:POLICE> <id:10> <nodeId:1> <balance:100.0>
+
+
+	<nodeId:1> <turnNumber:0> <balance100.0>
+	<nodeId:1> <turnNumber:1> <balance100.0>
+	<nodeId:9> <turnNumber:2> <balance100.0>
+	<nodeId:9> <turnNumber:3> <balance100.0>
+	<nodeId:20> <turnNumber:4> <balance120.0>
+	<nodeId:20> <turnNumber:5> <balance120.0>
+	<nodeId:33> <turnNumber:6> <balance140.0>
+	<nodeId:33> <turnNumber:7> <balance140.0>
+	<nodeId:21> <turnNumber:8> <balance160.0>
+	<nodeId:21> <turnNumber:9> <balance160.0>
+	<nodeId:10> <turnNumber:10> <balance180.0>
+	<nodeId:10> <turnNumber:11> <balance180.0>
+	<nodeId:34> <turnNumber:12> <balance200.0>
+	<nodeId:34> <turnNumber:13> <balance200.0>
+	<nodeId:10> <turnNumber:14> <balance220.0>
+	<nodeId:10> <turnNumber:15> <balance220.0>
+	<nodeId:11> <turnNumber:16> <balance240.0>
+	<nodeId:11> <turnNumber:17> <balance240.0>
+	<nodeId:10> <turnNumber:18> <balance260.0>
+	<nodeId:10> <turnNumber:19> <balance260.0>
+	<nodeId:34> <turnNumber:20> <balance280.0>
+	<nodeId:34> <turnNumber:21> <balance280.0>
+	
+
+	Agent movements List : <team:SECOND> <type:POLICE> <id:13> <nodeId:1> <balance:100.0>
+
+
+	<nodeId:1> <turnNumber:0> <balance100.0>
+	<nodeId:1> <turnNumber:1> <balance100.0>
+	<nodeId:44> <turnNumber:2> <balance75.0>
+	<nodeId:44> <turnNumber:3> <balance75.0>
+	<nodeId:1> <turnNumber:4> <balance70.0>
+	<nodeId:1> <turnNumber:5> <balance70.0>
+	<nodeId:9> <turnNumber:6> <balance90.0>
+	<nodeId:9> <turnNumber:7> <balance90.0>
+	<nodeId:1> <turnNumber:8> <balance110.0>
+	<nodeId:1> <turnNumber:9> <balance110.0>
+	<nodeId:9> <turnNumber:10> <balance130.0>
+	<nodeId:9> <turnNumber:11> <balance130.0>
+	<nodeId:19> <turnNumber:12> <balance150.0>
+	<nodeId:19> <turnNumber:13> <balance150.0>
+	<nodeId:9> <turnNumber:14> <balance170.0>
+	<nodeId:9> <turnNumber:15> <balance170.0>
+	<nodeId:19> <turnNumber:16> <balance190.0>
+	<nodeId:19> <turnNumber:17> <balance190.0>
+	<nodeId:32> <turnNumber:18> <balance210.0>
+	<nodeId:32> <turnNumber:19> <balance210.0>
+	<nodeId:44> <turnNumber:20> <balance230.0>
+	<nodeId:44> <turnNumber:21> <balance230.0>
+	
+
+	Agent movements List : <team:FIRST> <type:THIEF> <id:1> <nodeId:46> <balance:100.0>
+
+
+	<nodeId:46> <turnNumber:0> <balance100.0>
+	<nodeId:33> <turnNumber:1> <balance100.0>
+	<nodeId:33> <turnNumber:2> <balance100.0>
+	<nodeId:21> <turnNumber:3> <balance110.0>
+	<nodeId:21> <turnNumber:4> <balance110.0>
+	<nodeId:21> <turnNumber:5> <balance130.0>
+	<nodeId:21> <turnNumber:6> <balance130.0>
+	<nodeId:10> <turnNumber:7> <balance150.0>
+	<nodeId:10> <turnNumber:8> <balance150.0>
+	<nodeId:2> <turnNumber:9> <balance170.0>
+	<nodeId:2> <turnNumber:10> <balance170.0>
+	<nodeId:2> <turnNumber:11> <balance190.0>
+	<nodeId:2> <turnNumber:12> <balance190.0>
+	<nodeId:2> <turnNumber:13> <balance210.0>
+	<nodeId:2> <turnNumber:14> <balance210.0>
+	<nodeId:2> <turnNumber:15> <balance230.0>
+	<nodeId:2> <turnNumber:16> <balance230.0>
+	<nodeId:2> <turnNumber:17> <balance250.0>
+	<nodeId:2> <turnNumber:18> <balance250.0>
+	<nodeId:2> <turnNumber:19> <balance270.0>
+	<nodeId:2> <turnNumber:20> <balance270.0>
+	
+
+	Agent movements List : <team:SECOND> <type:POLICE> <id:11> <nodeId:1> <balance:100.0>
+
+
+	<nodeId:1> <turnNumber:0> <balance100.0>
+	<nodeId:1> <turnNumber:1> <balance100.0>
+	<nodeId:46> <turnNumber:2> <balance50.0>
+	<nodeId:46> <turnNumber:3> <balance50.0>
+	<nodeId:34> <turnNumber:4> <balance45.0>
+	<nodeId:34> <turnNumber:5> <balance45.0>
+	<nodeId:47> <turnNumber:6> <balance65.0>
+	<nodeId:47> <turnNumber:7> <balance65.0>
+	<nodeId:46> <turnNumber:8> <balance85.0>
+	<nodeId:46> <turnNumber:9> <balance85.0>
+	<nodeId:61> <turnNumber:10> <balance105.0>
+	<nodeId:61> <turnNumber:11> <balance105.0>
+	<nodeId:46> <turnNumber:12> <balance125.0>
+	<nodeId:46> <turnNumber:13> <balance125.0>
+	<nodeId:47> <turnNumber:14> <balance145.0>
+	<nodeId:47> <turnNumber:15> <balance145.0>
+	<nodeId:34> <turnNumber:16> <balance165.0>
+	<nodeId:34> <turnNumber:17> <balance165.0>
+	<nodeId:22> <turnNumber:18> <balance185.0>
+	<nodeId:22> <turnNumber:19> <balance185.0>
+	<nodeId:3> <turnNumber:20> <balance180.0>
+	<nodeId:3> <turnNumber:21> <balance180.0>
+	
+
+	Agent movements List : <team:SECOND> <type:POLICE> <id:16> <nodeId:1> <balance:100.0>
+
+
+	<nodeId:1> <turnNumber:0> <balance100.0>
+	<nodeId:1> <turnNumber:1> <balance100.0>
+	<nodeId:9> <turnNumber:2> <balance100.0>
+	<nodeId:9> <turnNumber:3> <balance100.0>
+	<nodeId:19> <turnNumber:4> <balance120.0>
+	<nodeId:19> <turnNumber:5> <balance120.0>
+	<nodeId:32> <turnNumber:6> <balance140.0>
+	<nodeId:32> <turnNumber:7> <balance140.0>
+	<nodeId:19> <turnNumber:8> <balance160.0>
+	<nodeId:19> <turnNumber:9> <balance160.0>
+	<nodeId:32> <turnNumber:10> <balance180.0>
+	<nodeId:32> <turnNumber:11> <balance180.0>
+	<nodeId:45> <turnNumber:12> <balance200.0>
+	<nodeId:45> <turnNumber:13> <balance200.0>
+	<nodeId:46> <turnNumber:14> <balance220.0>
+	<nodeId:46> <turnNumber:15> <balance220.0>
+	<nodeId:34> <turnNumber:16> <balance215.0>
+	<nodeId:34> <turnNumber:17> <balance215.0>
+	<nodeId:46> <turnNumber:18> <balance210.0>
+	<nodeId:46> <turnNumber:19> <balance210.0>
+	<nodeId:1> <turnNumber:20> <balance180.0>
+	<nodeId:1> <turnNumber:21> <balance180.0>
 	Nodes Coordination: [-292.4294,-220.49223,294.4222,237.6171]
 
 ERRORS:
@@ -29,21 +682,63 @@ ERRORS:
 
 	gRPC Server started, listening on address: *, port: 7000
 
-	Detected grpc-netty-shaded: Creating ShadedNettyGrpcServerFactory
-	Client error : Picked up _JAVA_OPTIONS: -Dawt.useSystemAAFontSettings=on -Dswing.aatext=true
-	Client error : Picked up _JAVA_OPTIONS: -Dawt.useSystemAAFontSettings=on -Dswing.aatext=true
-	Client error : Picked up _JAVA_OPTIONS: -Dawt.useSystemAAFontSettings=on -Dswing.aatext=true
-	Client error : Picked up _JAVA_OPTIONS: -Dawt.useSystemAAFontSettings=on -Dswing.aatext=true
-	Client error : Picked up _JAVA_OPTIONS: -Dawt.useSystemAAFontSettings=on -Dswing.aatext=true
-	Client error : Picked up _JAVA_OPTIONS: -Dawt.useSystemAAFontSettings=on -Dswing.aatext=true
-	Client error : Picked up _JAVA_OPTIONS: -Dawt.useSystemAAFontSettings=on -Dswing.aatext=true
-	Client error : Picked up _JAVA_OPTIONS: -Dawt.useSystemAAFontSettings=on -Dswing.aatext=true
-	Client error : Picked up _JAVA_OPTIONS: -Dawt.useSystemAAFontSettings=on -Dswing.aatext=true
-	Client error : Picked up _JAVA_OPTIONS: -Dawt.useSystemAAFontSettings=on -Dswing.aatext=true
-	Client error : Picked up _JAVA_OPTIONS: -Dawt.useSystemAAFontSettings=on -Dswing.aatext=true
-	Client error : Picked up _JAVA_OPTIONS: -Dawt.useSystemAAFontSettings=on -Dswing.aatext=true
-	Client error : Picked up _JAVA_OPTIONS: -Dawt.useSystemAAFontSettings=on -Dswing.aatext=true
-	Client error : Picked up _JAVA_OPTIONS: -Dawt.useSystemAAFontSettings=on -Dswing.aatext=true
-	Client error : Picked up _JAVA_OPTIONS: -Dawt.useSystemAAFontSettings=on -Dswing.aatext=true
-	Client error : Picked up _JAVA_OPTIONS: -Dawt.useSystemAAFontSettings=on -Dswing.aatext=true
-	Completed gRPC server shutdown
+	Client log : <Turn: 1> 9 8 0 | Dangered agent: 2 Affordable options: [(45,46,0),(33,46,0),(46,47,0),(46,61,0),(1,46,50),(46,74,50),(46,79,50),(13,46,50),(34,46,25)] Chosen options: [(45,46,0),(33,46,0),(46,47,0),(46,61,0),(46,74,50),(46,79,50),(13,46,50),(34,46,25)] Unaffordable options: [] Enemy Territory Size: 5
+
+	Client log : <Turn: 1> 9 8 0 | Dangered agent: 1 Affordable options: [(45,46,0),(33,46,0),(46,47,0),(46,61,0),(1,46,50),(46,74,50),(46,79,50),(13,46,50),(34,46,25)] Chosen options: [(45,46,0),(33,46,0),(46,47,0),(46,61,0),(46,74,50),(46,79,50),(13,46,50),(34,46,25)] Unaffordable options: [] Enemy Territory Size: 5
+
+	Client log : <Turn: 2> 4 1 0 | Dangered agent: 1 Affordable options: [(21,33,0),(20,33,0),(32,33,0),(33,46,0)] Chosen options: [(21,33,0)] Unaffordable options: [] Enemy Territory Size: 19
+
+	Client log : <Turn: 2> 5 5 0 | Safe agent: 2 Affordable options: [(34,47,0),(22,34,0),(34,48,0),(34,46,25),(10,34,0)] Unaffordable options: [] Enemy Territory Size: 10
+
+	Client log : <Turn: 3> 4 4 0 | Safe agent: 2 Affordable options: [(2,10,0),(10,21,0),(10,11,0),(10,34,0)] Unaffordable options: [] Enemy Territory Size: 16
+
+	Client log : <Turn: 3> 2 0 0 | Surrounded agent: 1 Affordable options: [(10,21,0),(21,33,0)] Unaffordable options: [] Enemy Territory Size: 15
+
+	Client log : <Turn: 4> 2 1 0 | Dangered agent: 1 Affordable options: [(10,21,0),(21,33,0)] Chosen options: [(10,21,0)] Unaffordable options: [] Enemy Territory Size: 13
+
+	Client log : <Turn: 4> 2 1 0 | Dangered agent: 2 Affordable options: [(2,20,0),(2,10,0)] Chosen options: [(2,10,0)] Unaffordable options: [] Enemy Territory Size: 17
+
+	Client log : <Turn: 5> 4 2 0 | Dangered agent: 1 Affordable options: [(2,10,0),(10,21,0),(10,11,0),(10,34,0)] Chosen options: [(2,10,0),(10,11,0)] Unaffordable options: [] Enemy Territory Size: 17
+
+	Client log : <Turn: 5> 4 3 0 | Dangered agent: 2 Affordable options: [(2,10,0),(10,21,0),(10,11,0),(10,34,0)] Chosen options: [(10,21,0),(10,11,0),(10,34,0)] Unaffordable options: [] Enemy Territory Size: 17
+
+	Client log : <Turn: 6> 2 0 0 | Surrounded agent: 1 Affordable options: [(2,20,0),(2,10,0)] Unaffordable options: [] Enemy Territory Size: 21
+
+	Client log : <Turn: 6> 2 1 0 | Dangered agent: 2 Affordable options: [(10,21,0),(21,33,0)] Chosen options: [(21,33,0)] Unaffordable options: [] Enemy Territory Size: 18
+
+	Client log : <Turn: 7> 2 0 0 | Surrounded agent: 1 Affordable options: [(2,20,0),(2,10,0)] Unaffordable options: [] Enemy Territory Size: 22
+
+	Client log : <Turn: 7> 4 1 0 | Dangered agent: 2 Affordable options: [(21,33,0),(20,33,0),(32,33,0),(33,46,0)] Chosen options: [(20,33,0)] Unaffordable options: [] Enemy Territory Size: 21
+
+	Client log : <Turn: 8> 2 0 0 | Surrounded agent: 1 Affordable options: [(2,20,0),(2,10,0)] Unaffordable options: [] Enemy Territory Size: 24
+
+	Client log : <Turn: 8> 3 2 0 | Dangered agent: 2 Affordable options: [(9,20,0),(2,20,0),(20,33,0)] Chosen options: [(2,20,0),(20,33,0)] Unaffordable options: [] Enemy Territory Size: 23
+
+	Client log : <Turn: 9> 2 0 0 | Surrounded agent: 1 Affordable options: [(2,20,0),(2,10,0)] Unaffordable options: [] Enemy Territory Size: 22
+
+	Client log : <Turn: 9> 2 1 0 | Dangered agent: 2 Affordable options: [(2,20,0),(2,10,0)] Chosen options: [(2,10,0)] Unaffordable options: [] Enemy Territory Size: 25
+
+	Client log : <Turn: 10> 4 2 0 | Dangered agent: 2 Affordable options: [(2,10,0),(10,21,0),(10,11,0),(10,34,0)] Chosen options: [(2,10,0),(10,11,0)] Unaffordable options: [] Enemy Territory Size: 26
+
+	Client log : <Turn: 10> 2 0 0 | Surrounded agent: 1 Affordable options: [(2,20,0),(2,10,0)] Unaffordable options: [] Enemy Territory Size: 26
+
+	Cannot invoke "com.badlogic.gdx.utils.JsonValue.has(String)" because "context" is null
+	Cannot invoke "com.badlogic.gdx.utils.JsonValue.has(String)" because "context" is null
+	Cannot invoke "com.badlogic.gdx.utils.JsonValue.has(String)" because "context" is null
+	Cannot invoke "com.badlogic.gdx.utils.JsonValue.has(String)" because "context" is null
+	Cannot invoke "com.badlogic.gdx.utils.JsonValue.has(String)" because "context" is null
+	Cannot invoke "com.badlogic.gdx.utils.JsonValue.has(String)" because "context" is null
+	Cannot invoke "com.badlogic.gdx.utils.JsonValue.has(String)" because "context" is null
+	Cannot invoke "com.badlogic.gdx.utils.JsonValue.has(String)" because "context" is null
+	Cannot invoke "com.badlogic.gdx.utils.JsonValue.has(String)" because "context" is null
+	Cannot invoke "com.badlogic.gdx.utils.JsonValue.has(String)" because "context" is null
+	Cannot invoke "com.badlogic.gdx.utils.JsonValue.has(String)" because "context" is null
+	Cannot invoke "com.badlogic.gdx.utils.JsonValue.has(String)" because "context" is null
+	Cannot invoke "com.badlogic.gdx.utils.JsonValue.has(String)" because "context" is null
+	Cannot invoke "com.badlogic.gdx.utils.JsonValue.has(String)" because "context" is null
+	Cannot invoke "com.badlogic.gdx.utils.JsonValue.has(String)" because "context" is null
+	Cannot invoke "com.badlogic.gdx.utils.JsonValue.has(String)" because "context" is null
+	Cannot invoke "com.badlogic.gdx.utils.JsonValue.has(String)" because "context" is null
+	Cannot invoke "com.badlogic.gdx.utils.JsonValue.has(String)" because "context" is null
+	java.lang.Error: TurnChangeNotFoundException: Could not find turn change by turn number : 1
+	java.lang.Error: TurnChangeNotFoundException: Could not find turn change by turn number : 1

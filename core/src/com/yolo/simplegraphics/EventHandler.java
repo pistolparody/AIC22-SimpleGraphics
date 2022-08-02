@@ -25,6 +25,23 @@ public class EventHandler implements InputProcessor
             Gdx.app.exit();
             return true;
         }
+
+        if (keycode==Input.Keys.RIGHT)
+        {
+            if (currentTurn+1<=maxTurnNumber){
+                currentTurn++;
+                GameEvent.TURN_CHANGE.updateMap(currentTurn);
+            }
+
+            }
+        else if(keycode==Input.Keys.LEFT)
+        {
+            if (currentTurn-1>=0){
+                currentTurn--;
+                GameEvent.TURN_CHANGE.updateMap(currentTurn);
+            }
+        }
+
         return false;
     }
 

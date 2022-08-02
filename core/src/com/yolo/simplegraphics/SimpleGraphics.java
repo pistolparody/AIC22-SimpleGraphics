@@ -40,10 +40,17 @@ public class SimpleGraphics extends ApplicationAdapter {
 	public static List<Agent> everyAgent;
 	public static FileHandle  logFile;
 
-	Texture thiefTexture;
-	Texture copTexture;
-	public static Sprite thiefSprite;
-	public static Sprite copSprite;
+	Texture blueThiefTexture;
+	Texture blueCopTexture;
+	Texture redThiefTexture;
+	Texture redCopTexture;
+
+
+
+	public static Sprite blueThiefSprite;
+	public static Sprite blueCopSprite;
+	public static Sprite redThiefSprite;
+	public static Sprite redCopSprite;
 
 	//Game Related
 	public static SpriteBatch batch;
@@ -54,6 +61,8 @@ public class SimpleGraphics extends ApplicationAdapter {
 	EventHandler eventHandler;
 	myGestureListener gestureListener;
 
+	public static int currentTurn=0;
+	public static int maxTurnNumber=0;
 
 	public static final float winWidth = 500;
 	public static final float winHeight = winWidth/2.2f;
@@ -70,10 +79,15 @@ public class SimpleGraphics extends ApplicationAdapter {
 		camera = new OrthographicCamera();
 		viewport = new StretchViewport(winWidth,winHeight,camera);
 
-		copTexture = new Texture(Gdx.files.internal("Cop.png"));
-		thiefTexture = new Texture(Gdx.files.internal("Thief.png"));
-		copSprite = new Sprite(copTexture);
-		thiefSprite = new Sprite(thiefTexture);
+		blueCopTexture = new Texture(Gdx.files.internal("BlueCop.png"));
+		blueThiefTexture = new Texture(Gdx.files.internal("BlueThief.png"));
+		redCopTexture = new Texture(Gdx.files.internal("RedCop.png"));
+		redThiefTexture = new Texture(Gdx.files.internal("RedThief.png"));
+
+		blueCopSprite = new Sprite(blueCopTexture);
+		blueThiefSprite = new Sprite(blueThiefTexture);
+		redCopSprite = new Sprite(redCopTexture);
+		redThiefSprite = new Sprite(redThiefTexture);
 
 
 
@@ -90,7 +104,7 @@ public class SimpleGraphics extends ApplicationAdapter {
 
 		readServer("server.log");
 		deserializeServer();
-
+		fillGameEvents();
 
 		logList.add("Nodes Coordination: "+Node.getCoordination());
 
@@ -228,6 +242,9 @@ public class SimpleGraphics extends ApplicationAdapter {
 		everyNode = new ArrayList<>();
 		everyEdge = new ArrayList<>();
 		everyAgent = new ArrayList<>();
+		GameEvent.TURN_CHANGE.turnChangeList = new ArrayList<>();
+		GameEvent.AGENT_MOVEMENT.agentMovementList = new ArrayList<>();
+		GameEvent.STATUS_CHANGE.statusChangeList = new ArrayList<>();
 
 		Node tempNode;
 		for (int i=0;i!=nodeJsonValues.get(0).size;i++)
@@ -256,14 +273,83 @@ public class SimpleGraphics extends ApplicationAdapter {
 
 		JsonValue context;
 		Agent.TYPE type;
+
 		Agent.TEAM team;
+		GameEvent.TURN_CHANGE turnChange;
+		GameEvent.AGENT_MOVEMENT agentMovement;
+		GameEvent.STATUS_CHANGE statusChange;
+
 		int id;
 		int nodeId;
 		double balance;
 		Agent agent;
+		int turnCounter=0;
+
+
 		for (int i=0;i!=contextJsonValues.size();i++)
 		{
 			try{
+				if (contextJsonValues.get(i).has("type"))
+				{
+
+					context = contextJsonValues.get(i).get("context");
+					if (contextJsonValues.get(i).getString("type").equals(GameEvent.TURN_CHANGE.text))
+					{
+						if (context.getString("toTurn").equals(Agent.TYPE.POLICE.turnText))
+						{
+							type = Agent.TYPE.POLICE;
+
+						}
+						else{
+							type = Agent.TYPE.THIEF;
+
+						}
+						turnChange = new GameEvent.TURN_CHANGE
+								( contextJsonValues.get(i).getString("timeStamp"),
+										context.getInt("toTurnNumber"),
+										context.getBoolean("isVisible"),
+
+										type
+								);
+						turnCounter++;
+						logList.add("\n\t"+turnChange.toString()+" turnCounter:"+turnCounter+"\n");
+						GameEvent.TURN_CHANGE.turnChangeList.add(turnChange);
+					}
+					else if(contextJsonValues.get(i).getString("type").equals(GameEvent.AGENT_MOVEMENT.text))
+					{
+
+
+						agentMovement = new GameEvent.AGENT_MOVEMENT
+								(
+										contextJsonValues.get(i).getString("timeStamp"),
+										context.getInt("agentId"),
+										context.getInt("fromNodeId"),
+										context.getInt("toNodeId"),
+										context.getDouble("balance"),
+										context.getDouble("price"),
+										turnCounter
+								);
+
+
+						logList.add("\t"+agentMovement.toString()+" turnCounter:"+turnCounter);
+						GameEvent.AGENT_MOVEMENT.agentMovementList.add(agentMovement);
+
+					}
+					else if(contextJsonValues.get(i).getString("type").equals(GameEvent.STATUS_CHANGE.text))
+					{
+						statusChange = new GameEvent.STATUS_CHANGE(contextJsonValues.get(i).getString("timeStamp"),
+										context.getString("fromStatus"),
+										context.getString("toStatus"));
+
+						if (context.getString("toStatus").equals("ONGOING")){turnCounter++;}
+
+						logList.add("\n\t"+statusChange.toString()+" turnCounter:"+turnCounter+"\n");
+						GameEvent.STATUS_CHANGE.statusChangeList.add(statusChange);
+
+					}
+				}
+
+
 				context = contextJsonValues.get(i).get("context");
 				if (context.has("agentId"))
 				{
@@ -290,7 +376,7 @@ public class SimpleGraphics extends ApplicationAdapter {
 						balance = context.getDouble("balance");
 
 						agent = new Agent(id,team,type,nodeId,balance);
-						logList.add(agent.toString());
+						logList.add(agent.toString()+" turnCounter:"+turnCounter);
 						everyAgent.add(agent);
 					}
 				}
@@ -300,7 +386,24 @@ public class SimpleGraphics extends ApplicationAdapter {
 				}
 			}catch (NullPointerException e)
 			{
-				errorsList.add(contextJsonValues.get(i).toString());
+				errorsList.add(e.getMessage());
+			}
+		}
+		maxTurnNumber=turnCounter;
+	}
+
+	public void fillGameEvents()
+	{
+
+		for (int i=0;i!=everyAgent.size();i++)
+		{
+			everyAgent.get(i).fillAgentMovementList(GameEvent.AGENT_MOVEMENT.agentMovementList);
+			logList.add("\n\n\tAgent movements List : "+
+					everyAgent.get(i).toString()+
+					"\n\n");
+			for (int c=0;c!=everyAgent.get(i).agentStateList.size();c++)
+			{
+				logList.add(everyAgent.get(i).agentStateList.get(c).toString());
 			}
 		}
 	}
