@@ -36,9 +36,13 @@ public class myGestureListener implements GestureDetector.GestureListener
         float scaleX = winWidth / winCurrentWidth;
         float scaleY = winHeight / winCurrentHeight;
         Vector2 rel = new Vector2((int)(-deltaX * scaleX * camera.zoom), (int)(deltaY * scaleY * camera.zoom));
+        rel.x*=0.6f;
+        rel.y*=0.6f;
+
         Vector2 newPos = new Vector2(rel.x+camera.position.x,rel.y+camera.position.y);
 
         if ((newPos.x<-winWidth/2)||(newPos.x>winWidth/2)||(newPos.y<-winHeight/2)||(newPos.y>winHeight/2)) {return false;}
+
 
         camera.translate(rel.x,rel.y);
         viewport.update(winCurrentWidth,winCurrentHeight);

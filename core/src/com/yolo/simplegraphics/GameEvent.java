@@ -118,6 +118,7 @@ public class GameEvent
         public static boolean updateMap(int turnNumber)
         {
 
+            SimpleGraphics.isHoovering=false;
             agentsAreMoving = true;
 
             System.out.println("Current turnNumber : "+turnNumber);
@@ -130,6 +131,7 @@ public class GameEvent
 
             for (int i=0;i!=turnChangeList.size();i++)
             {
+
              if (turnChangeList.get(i).toTurnNumber==turnNumber)
              {
                  Agent.requestMovementAll(turnNumber);

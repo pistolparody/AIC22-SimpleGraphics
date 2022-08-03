@@ -1,6 +1,8 @@
 package com.yolo.simplegraphics;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.GlyphLayout;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -19,8 +21,9 @@ public class TextRect {
     GlyphLayout glyphLayout;
     int debugColorIndex;
 
-    private float maxWidth;
-    private float scaleX;
+    private float maxWidth=0;
+    private float maxHeight=0;
+    private float scale;
 
     TextRect(BitmapFont p_font, String p_text, Vector2 p_center, Color p_color){
         font = p_font;
@@ -33,38 +36,41 @@ public class TextRect {
     }
 
     public void setDebugColors(Color color1,Color color2){
+
         debugColorArray = new Color[2];
-        debugColorArray[0] = color1;
-        debugColorArray[1] = color2;
+        debugColorArray[0] = new Color(color1);
+        debugColorArray[1] = new Color(color2);
     }
 
     public void setMaxWidth(float p_maxWidth){
         maxWidth=p_maxWidth;
     }
 
+    public void setMaxHeight(float maxHeight) {
+        this.maxHeight = maxHeight;
+    }
+
     public void init(){
         debugColorIndex=0;
 
+        font.getData().setScale(1);
         font.setColor(color);
         glyphLayout = new GlyphLayout(font,text);
 
-
-        if (glyphLayout.width>maxWidth){
+        if ((glyphLayout.width>maxWidth)||(glyphLayout.height>maxHeight)){
             debugColorIndex=1;
 
-//            System.out.println("TextRect Initialization warning : ");
-//            System.out.println("\tName : "+text);
-//            System.out.println("\tMaximum width is exceeded -> "+glyphLayout.width+" > "+maxWidth);
-
-            scaleX = maxWidth/glyphLayout.width;
-//            System.out.println("\tNew font scale is : "+scaleX);
-
-            font.getData().setScale(scaleX);
+            scale = maxWidth/glyphLayout.width;
+            if ((maxWidth==0))
+            {
+                scale = maxHeight/glyphLayout.height;
+            }
+            font.getData().setScale(scale);
             glyphLayout = new GlyphLayout(font,text);
             font.getData().setScale(1);
         }
         else{
-            scaleX = 1;
+            scale = 1;
         }
 
 
@@ -98,12 +104,14 @@ public class TextRect {
     public void render(SpriteBatch p_batch){
 
 
-        font.getData().setScale(scaleX);
+        font.getData().setScale(scale);
         font.draw(p_batch,glyphLayout, rect.x,rect.y+rect.height);
+        font.getData().setScale(1);
 
     }
 
     public void renderDebug(ShapeRenderer p_shape){
+
         p_shape.begin(ShapeRenderer.ShapeType.Filled);
         p_shape.setColor(debugColorArray[debugColorIndex]);
         p_shape.rect(rect.x,rect.y,rect.width,rect.height);

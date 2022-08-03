@@ -30,6 +30,7 @@ public class EventHandler implements InputProcessor
             System.out.println("Can't take commands while the agents are moving!");
             return false;
         }
+
         if (keycode==Input.Keys.RIGHT)
         {
             if (currentTurn+1<=maxTurnNumber){
@@ -71,6 +72,9 @@ public class EventHandler implements InputProcessor
             System.out.println("Agents movement speed is now 16X");
         }
 
+        textRect.update(getGameState());
+
+
         return false;
     }
 
@@ -90,18 +94,28 @@ public class EventHandler implements InputProcessor
     @Override
     public boolean touchUp(int screenX, int screenY, int pointer, int button) {
         if (button==Input.Buttons.LEFT){mouseHeld=false;}
+        mouseVector2.x=screenX; mouseVector2.y=screenY;
+        uiMouseVector2 = new Vector2(mouseVector2);
+
+        viewport.unproject(mouseVector2);
+        uiViewport.unproject(uiMouseVector2);
         return false;
     }
 
     @Override
     public boolean touchDragged(int screenX, int screenY, int pointer) {
+
         return false;
     }
 
     @Override
     public boolean mouseMoved(int screenX, int screenY) {
         mouseVector2.x=screenX; mouseVector2.y=screenY;
+        uiMouseVector2 = new Vector2(mouseVector2);
+
         viewport.unproject(mouseVector2);
+        uiViewport.unproject(uiMouseVector2);
+
         return false;
     }
 

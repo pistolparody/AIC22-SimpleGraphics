@@ -5,22 +5,20 @@ import com.badlogic.gdx.Files;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputMultiplexer;
 import com.badlogic.gdx.files.FileHandle;
-import com.badlogic.gdx.graphics.Camera;
-import com.badlogic.gdx.graphics.Color;
-import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.graphics.*;
 
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.input.GestureDetector;
+import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.*;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
-
+import org.w3c.dom.css.Rect;
 
 
 import java.util.ArrayList;
@@ -42,7 +40,9 @@ public class SimpleGraphics extends ApplicationAdapter {
 	public static FileHandle  logFile;
 
 	public static TextRect textRect;
-
+	public static TextRect hooverTextRect;
+	public static boolean isHoovering=false;
+	public static String sourceFileAddress="server.log";
 	Texture blueThiefTexture;
 	Texture blueCopTexture;
 	Texture redThiefTexture;
@@ -59,11 +59,13 @@ public class SimpleGraphics extends ApplicationAdapter {
 
 	//Game Related
 	public static SpriteBatch batch;
+	public static SpriteBatch uiBatch;
 	public static Viewport viewport;
 	public static Viewport uiViewport;
 
 	public static OrthographicCamera camera;
 	public static ShapeRenderer shape;
+	public static ShapeRenderer uiShape;
 	public static BitmapFont font;
 	EventHandler eventHandler;
 	myGestureListener gestureListener;
@@ -77,12 +79,18 @@ public class SimpleGraphics extends ApplicationAdapter {
 	public static int winCurrentHeight=0;
 
 	public static Vector2 mouseVector2=new Vector2(0,0);
+	public static Vector2 uiMouseVector2 = new Vector2(0,0);
 	public static boolean mouseHeld=false;
+
 
 
 	@Override
 	public void create () {
+		Gdx.gl.glEnable(GL20.GL_BLEND);
+
 		batch = new SpriteBatch();
+		uiBatch = new SpriteBatch();
+
 		camera = new OrthographicCamera();
 		viewport = new StretchViewport(winWidth,winHeight,camera);
 		uiViewport = new StretchViewport(winWidth,winHeight);
@@ -99,21 +107,34 @@ public class SimpleGraphics extends ApplicationAdapter {
 		redThiefSprite = new Sprite(redThiefTexture);
 
 
-		textRect = new TextRect(font,"Test text rect",new Vector2(0,winHeight/2),Color.BLACK);
-		textRect.setMaxWidth(winWidth/4);
+		textRect = new TextRect(font,getGameState(),new Vector2(0,0),Color.BLACK);
+		textRect.setMaxHeight(winHeight*0.04f);
 		textRect.init();
+		textRect.recenter(new Vector2(0,(-winHeight/2)+(winHeight*0.05f)));
+
+		hooverTextRect = new TextRect(font,getGameState(),new Vector2(0,0),Color.BLACK);
+
+		Color c0 = new Color(Color.FIREBRICK); c0.a=0.7f;
+		Color c1 = new Color(Color.LIME); c1.a=0.7f;
+
+		hooverTextRect.setDebugColors(c0,c1);
+		hooverTextRect.setMaxWidth(winWidth*0.3f);
+		hooverTextRect.init();
+		hooverTextRect.recenter(new Vector2(0,0));
+
 
 		logList = new ArrayList<>();
 		logFile = Gdx.files.local("log.txt");
 		logFile.writeString("LOG FILE STARTED\n",false);
 
 		shape = new ShapeRenderer();
+		uiShape = new ShapeRenderer();
 		jsonReader = new JsonReader();
 		eventHandler = new EventHandler();
 		gestureListener = new myGestureListener();
 
 
-		readServer("server.log");
+		readServer(sourceFileAddress);
 		deserializeServer();
 		fillGameEvents();
 
@@ -138,8 +159,6 @@ public class SimpleGraphics extends ApplicationAdapter {
 
 	public void renderTextures()
 	{
-		textRect.render(batch);
-
 		if (agentsAreMoving)
 		{
 			moveAlpha+=moveSpeed;
@@ -151,11 +170,51 @@ public class SimpleGraphics extends ApplicationAdapter {
 			}
 		}
 		Agent.drawAll(everyAgent);
+
+
 	}
 
+	public void uiRender()
+	{
+
+		textRect.render(uiBatch);
+
+		if (isHoovering&&!mouseHeld)
+		{
+			hooverTextRect.render(uiBatch);
+		}
+
+	}
+
+	public void uiRenderShapes()
+	{
+		Gdx.gl.glEnable(GL20.GL_BLEND);
+		uiShape.begin(ShapeRenderer.ShapeType.Filled);
+		Color color = new Color(Color.ROYAL); color.a = 0.5f;
+		uiShape.setColor(color);
+
+		uiShape.rect
+				(uiViewport.getCamera().position.x-winWidth/2,
+						uiViewport.getCamera().position.y-winHeight/2,
+						winWidth,
+						winHeight*0.1f
+				);
+
+		uiShape.end();
+
+
+
+		if (isHoovering&&!mouseHeld)
+		{
+			hooverTextRect.renderDebug(uiShape);
+		}
+	}
 
 	@Override
 	public void render () {
+
+		checkHoover();
+
 		ScreenUtils.clear(Color.SKY);
 		batch.begin();
 		renderShapes();
@@ -164,6 +223,15 @@ public class SimpleGraphics extends ApplicationAdapter {
 		batch.begin();
 		renderTextures();
 		batch.end();
+
+		uiBatch.begin();
+		uiRenderShapes();
+		uiBatch.end();
+
+		uiBatch.begin();
+		uiRender();
+		uiBatch.end();
+
 	}
 	
 	@Override
@@ -178,15 +246,18 @@ public class SimpleGraphics extends ApplicationAdapter {
 		winCurrentHeight=height;
 		winCurrentWidth=width;
 		viewport.update(width,height);
+
+		uiViewport.update(width,height);
+		uiBatch.setProjectionMatrix(uiViewport.getCamera().combined);
+
 		batch.setProjectionMatrix(camera.combined);
 		shape.setProjectionMatrix(camera.combined);
-
-
-
+		uiShape.setProjectionMatrix(uiViewport.getCamera().combined);
 	}
 
 	public void readServer(String p_filePath)
 	{
+
 
 		FileHandle src = Gdx.files.local(p_filePath);
 		serverJsonValues = new ArrayList<>();
@@ -444,9 +515,65 @@ public class SimpleGraphics extends ApplicationAdapter {
 		{
 			logFile.writeString("\t"+errorsList.get(i)+"\n",true);
 		}
-
 	}
 
 
+	public static String getGameState()
+	{
+		return "turn : "+currentTurn+"     speed : "+(int)(moveSpeed*100)+"X";
+	}
+
+	public static boolean checkHoover()
+	{
+		Vector2 center = new Vector2();
+		Rectangle tempRect;
+
+		int totalAgents=0;
+		String text = "";
+
+		if (mouseHeld){
+//			center = new Vector2(uiMouseVector2);
+//			hooverTextRect.recenter(center);
+			return false;
+		}
+
+		if (!agentsAreMoving)
+		{
+
+			for (int i=0;i!=everyAgent.size();i++)
+			{
+				tempRect = everyAgent.get(i).getRect();
+
+				if (tempRect.contains(mouseVector2)){
+
+					totalAgents++;
+
+					if(totalAgents<=2)
+					{
+						text+=everyAgent.get(i).toBriefString();
+						if (totalAgents!=2){text+="\n";}
+					}
+
+				}
+			}
+
+			if (text!="")
+			{
+				if (totalAgents>2){text+="\n...";}
+				isHoovering=true;
+				hooverTextRect.update(text);
+
+				center = new Vector2(uiMouseVector2);
+				center.y += hooverTextRect.rect.height/2;
+
+				hooverTextRect.recenter(center);
+
+			}
+			else{
+				isHoovering=false;
+			}
+		}
+		return true;
+	}
 
 }

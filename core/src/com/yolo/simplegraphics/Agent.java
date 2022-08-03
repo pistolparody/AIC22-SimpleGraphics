@@ -1,9 +1,11 @@
 package com.yolo.simplegraphics;
 
 import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.sun.org.apache.xerces.internal.xs.ItemPSVI;
 
+import javax.print.DocFlavor;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -58,6 +60,7 @@ public class Agent
     private int nodeId;
     private boolean isDead;
     private int toNodeId;
+    private Rectangle rect;
 
 
     public final int id;
@@ -78,6 +81,7 @@ public class Agent
         this.type = type;
 
         isDead = false;
+        rect = new Rectangle(0,0,0,0);
     }
 
 
@@ -146,6 +150,10 @@ public class Agent
         return false;
     }
 
+    public Rectangle getRect()
+    {
+       return rect;
+    }
 
     public boolean draw()
     {
@@ -207,13 +215,11 @@ public class Agent
         }
 
 
-
-//        }
-
-
         tempSprite.setScale(newWidthScale);
 
         tempSprite.setCenter(posX,point.y+tempSprite.getBoundingRectangle().height/2);
+
+        rect = new Rectangle(tempSprite.getBoundingRectangle());
 
         tempSprite.draw(batch);
 
@@ -221,6 +227,7 @@ public class Agent
     }
 
     public String toString() {return getString(this);}
+    public String toBriefString() {return getBriefString(this);}
     public int getNodeId() {return nodeId;}
     public double getBalance() {return balance;}
 
@@ -231,6 +238,12 @@ public class Agent
     {
         return "<team:"+agent.team.text+"> <type:"+agent.type.text+"> <id:"+agent.id+"> <nodeId:"+agent.getNodeId()+"> <balance:"+agent.getBalance()+">";
     }
+
+    public static String getBriefString(Agent agent)
+    {
+        return agent.type+" id : "+agent.id+" "+" balance : "+agent.balance;
+    }
+
 
     public static void drawAll(List<Agent> p_agentList)
     {
