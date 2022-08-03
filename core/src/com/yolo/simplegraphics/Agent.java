@@ -35,13 +35,12 @@ public class Agent
         public final int nodeId;
         public final double balance;
         public final int turnNumber;
-        public final boolean isVisible;
         public final boolean isDead;
 
         STATE(int nodeId,double balance,int turnNumber,boolean isVisible,boolean isDead)
         {
             this.nodeId=nodeId; this.balance=balance;
-            this.turnNumber=turnNumber; this.isVisible=isVisible;
+            this.turnNumber=turnNumber;
             this.isDead=isDead;
         }
 
@@ -52,20 +51,19 @@ public class Agent
         {
             return "<nodeId:"+ state.nodeId+"> <turnNumber:"+state.turnNumber+"> <balance"+ state.balance+">";
         }
-
-
     }
 
 
     private double balance;
     private int nodeId;
     private boolean isDead;
-    private static boolean isVisible;
+    private int toNodeId;
 
 
     public final int id;
     public final TEAM team;
     public final TYPE type;
+
 
 
     
@@ -78,7 +76,7 @@ public class Agent
         this.id = id;
         this.team = team;
         this.type = type;
-        isVisible = true;
+
         isDead = false;
     }
 
@@ -114,6 +112,22 @@ public class Agent
         }
     }
 
+    public boolean requestMovement(int turnNumber)
+    {
+        for (int i=0;i!=agentStateList.size();i++)
+        {
+            if (agentStateList.get(i).turnNumber==turnNumber)
+            {
+                toNodeId = agentStateList.get(i).nodeId;
+                return true;
+            }
+        }
+
+        System.out.println("requestMovementError: movement number "+turnNumber+" was not found for agent "+id+" in team "+team.text+ " and type "+type);
+//        throw new Error("MovementNotFound: movement number "+turnNumber+" was not found for agent "+id+" in team "+team.text+ "and type "+type);
+        return false;
+    }
+
     public boolean update(int turnNumber)
     {
         for (int i=0;i!=agentStateList.size();i++)
@@ -122,10 +136,6 @@ public class Agent
             {
                 nodeId = agentStateList.get(i).nodeId;
                 balance = agentStateList.get(i).balance;
-                if (type==TYPE.THIEF){
-                    isVisible = agentStateList.get(i).isVisible;
-                }
-
                 isDead = agentStateList.get(i).isDead;
                 return true;
             }
@@ -142,6 +152,14 @@ public class Agent
 
 
         Vector2 point = Node.findNodeById(nodeId).getProjectedVector2();
+
+        if (agentsAreMoving)
+        {
+            Vector2 point2 = Node.findNodeById(toNodeId).getProjectedVector2();
+            point.lerp(point2,moveAlpha);
+        }
+
+
         Sprite tempSprite;
         float posX=point.x;
 
@@ -162,27 +180,34 @@ public class Agent
 
         float newWidthScale = idealHeight / currentHeight;
 
-        if (team==TEAM.FIRST)
-        {
-         posX-=tempSprite.getBoundingRectangle().width*0.125f;
-        }
-        else
-        {
-            posX+=tempSprite.getBoundingRectangle().width*0.125f;
-        }
+//        if (team==TEAM.FIRST)
+//        {
+//         posX-=tempSprite.getBoundingRectangle().width*0.125f;
+//        }
+//        else
+//        {
+//            posX+=tempSprite.getBoundingRectangle().width*0.125f;
+//        }
 
 
 //        if ((type==TYPE.THIEF)&&(!isVisible))
 //        {
         if (this.isDead&&(type==TYPE.THIEF)){return false;}
-        if (!this.isVisible&&(type==TYPE.THIEF))
+        if ((currentTurn!=0)&&(currentTurn!=1)&&(type==TYPE.THIEF))
+
         {
-            tempSprite.setAlpha(0.5f);
+            if (!GameEvent.TURN_CHANGE.findTurnByTurnNumber(currentTurn).isVisible)
+            {
+                tempSprite.setAlpha(0.5f);
+            }
+            else
+            {
+                tempSprite.setAlpha(1);
+            }
         }
-        else
-        {
-            tempSprite.setAlpha(1);
-        }
+
+
+
 //        }
 
 
@@ -212,6 +237,15 @@ public class Agent
         for (int i=0;i!=p_agentList.size();i++)
         {
             p_agentList.get(i).draw();
+        }
+    }
+
+
+    public static void requestMovementAll(int turnNumber)
+    {
+        for (int i=0;i!=everyAgent.size();i++)
+        {
+            everyAgent.get(i).requestMovement(turnNumber);
         }
     }
 

@@ -10,6 +10,7 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
@@ -40,12 +41,16 @@ public class SimpleGraphics extends ApplicationAdapter {
 	public static List<Agent> everyAgent;
 	public static FileHandle  logFile;
 
+	public static TextRect textRect;
+
 	Texture blueThiefTexture;
 	Texture blueCopTexture;
 	Texture redThiefTexture;
 	Texture redCopTexture;
 
-
+	public static boolean agentsAreMoving=false;
+	public static float moveAlpha=0;
+	public static float moveSpeed=0.01f;
 
 	public static Sprite blueThiefSprite;
 	public static Sprite blueCopSprite;
@@ -55,9 +60,11 @@ public class SimpleGraphics extends ApplicationAdapter {
 	//Game Related
 	public static SpriteBatch batch;
 	public static Viewport viewport;
+	public static Viewport uiViewport;
+
 	public static OrthographicCamera camera;
 	public static ShapeRenderer shape;
-
+	public static BitmapFont font;
 	EventHandler eventHandler;
 	myGestureListener gestureListener;
 
@@ -78,6 +85,8 @@ public class SimpleGraphics extends ApplicationAdapter {
 		batch = new SpriteBatch();
 		camera = new OrthographicCamera();
 		viewport = new StretchViewport(winWidth,winHeight,camera);
+		uiViewport = new StretchViewport(winWidth,winHeight);
+		font = new BitmapFont(Gdx.files.internal("Pixeboy.fnt"));
 
 		blueCopTexture = new Texture(Gdx.files.internal("BlueCop.png"));
 		blueThiefTexture = new Texture(Gdx.files.internal("BlueThief.png"));
@@ -90,7 +99,9 @@ public class SimpleGraphics extends ApplicationAdapter {
 		redThiefSprite = new Sprite(redThiefTexture);
 
 
-
+		textRect = new TextRect(font,"Test text rect",new Vector2(0,winHeight/2),Color.BLACK);
+		textRect.setMaxWidth(winWidth/4);
+		textRect.init();
 
 		logList = new ArrayList<>();
 		logFile = Gdx.files.local("log.txt");
@@ -127,6 +138,18 @@ public class SimpleGraphics extends ApplicationAdapter {
 
 	public void renderTextures()
 	{
+		textRect.render(batch);
+
+		if (agentsAreMoving)
+		{
+			moveAlpha+=moveSpeed;
+			if (moveAlpha>1)
+			{
+				moveAlpha=0;
+				agentsAreMoving=false;
+				Agent.updateAgents(currentTurn);
+			}
+		}
 		Agent.drawAll(everyAgent);
 	}
 

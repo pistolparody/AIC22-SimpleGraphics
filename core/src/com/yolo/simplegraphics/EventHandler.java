@@ -26,6 +26,10 @@ public class EventHandler implements InputProcessor
             return true;
         }
 
+        if (agentsAreMoving){
+            System.out.println("Can't take commands while the agents are moving!");
+            return false;
+        }
         if (keycode==Input.Keys.RIGHT)
         {
             if (currentTurn+1<=maxTurnNumber){
@@ -40,6 +44,31 @@ public class EventHandler implements InputProcessor
                 currentTurn--;
                 GameEvent.TURN_CHANGE.updateMap(currentTurn);
             }
+        }
+        else if(keycode==Input.Keys.NUMPAD_1)
+        {
+            moveSpeed=0.01f;
+            System.out.println("Agents movement speed is now 1X");
+        }
+        else if(keycode==Input.Keys.NUMPAD_2)
+        {
+            moveSpeed=0.02f;
+            System.out.println("Agents movement speed is now 2X");
+        }
+        else if(keycode==Input.Keys.NUMPAD_3)
+        {
+            moveSpeed=0.04f;
+            System.out.println("Agents movement speed is now 4X");
+        }
+        else if(keycode==Input.Keys.NUMPAD_4)
+        {
+            moveSpeed=0.08f;
+            System.out.println("Agents movement speed is now 8X");
+        }
+        else if(keycode==Input.Keys.NUMPAD_5)
+        {
+            moveSpeed=0.16f;
+            System.out.println("Agents movement speed is now 16X");
         }
 
         return false;

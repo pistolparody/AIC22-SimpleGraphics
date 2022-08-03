@@ -2,6 +2,8 @@ package com.yolo.simplegraphics;
 
 import java.util.List;
 
+import static com.yolo.simplegraphics.SimpleGraphics.agentsAreMoving;
+
 // ------ GAME EVENTS ------ \\
 // STATUS_CHANGE
     // timeStamp
@@ -116,18 +118,22 @@ public class GameEvent
         public static boolean updateMap(int turnNumber)
         {
 
+            agentsAreMoving = true;
+
             System.out.println("Current turnNumber : "+turnNumber);
 
             if ((turnNumber==0)||(turnNumber==1))
             {
-                Agent.updateAgents(turnNumber);
+                Agent.requestMovementAll(turnNumber);
+//                Agent.updateAgents(turnNumber);
             }
 
             for (int i=0;i!=turnChangeList.size();i++)
             {
              if (turnChangeList.get(i).toTurnNumber==turnNumber)
              {
-                 Agent.updateAgents(turnNumber);
+                 Agent.requestMovementAll(turnNumber);
+//                 Agent.updateAgents(turnNumber);
                  return true;
               }
             }
