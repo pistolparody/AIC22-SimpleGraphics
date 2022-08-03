@@ -13,6 +13,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.input.GestureDetector;
+import com.badlogic.gdx.math.Circle;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.*;
@@ -23,6 +24,7 @@ import org.w3c.dom.css.Rect;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class SimpleGraphics extends ApplicationAdapter {
 	//Map Related
@@ -137,6 +139,7 @@ public class SimpleGraphics extends ApplicationAdapter {
 		readServer(sourceFileAddress);
 		deserializeServer();
 		fillGameEvents();
+		Node.fillEveryCNC();
 
 		logList.add("Nodes Coordination: "+Node.getCoordination());
 
@@ -520,7 +523,7 @@ public class SimpleGraphics extends ApplicationAdapter {
 
 	public static String getGameState()
 	{
-		return "turn : "+currentTurn+"     speed : "+(int)(moveSpeed*100)+"X";
+		return "turn : "+currentTurn+"     speed : "+String.format("%.1f",moveSpeed*100)+"X";
 	}
 
 	public static boolean checkHoover()
@@ -530,7 +533,8 @@ public class SimpleGraphics extends ApplicationAdapter {
 
 		int totalAgents=0;
 		String text = "";
-
+		Circle tempCircle = new Circle();
+		tempCircle.radius = 1.3f;
 		if (mouseHeld){
 //			center = new Vector2(uiMouseVector2);
 //			hooverTextRect.recenter(center);
@@ -567,12 +571,35 @@ public class SimpleGraphics extends ApplicationAdapter {
 				center.y += hooverTextRect.rect.height/2;
 
 				hooverTextRect.recenter(center);
+				return true;
 
 			}
 			else{
 				isHoovering=false;
 			}
 		}
+
+		for (int i=0;i!=everyNode.size();i++)
+		{
+			center = everyNode.get(i).getProjectedVector2();
+			tempCircle.x = center.x;
+			tempCircle.y = center.y;
+
+			if (tempCircle.contains(mouseVector2)) {
+
+				isHoovering=true;
+				text = "Node id : "+everyNode.get(i).getId()+"\n Connected nodes : "+everyNode.get(i).getConnectedNodesCount();
+				hooverTextRect.update(text);
+
+				center = new Vector2(uiMouseVector2);
+				center.y += hooverTextRect.rect.height/2;
+
+				hooverTextRect.recenter(center);
+				return true;
+			}
+
+		}
+
 		return true;
 	}
 

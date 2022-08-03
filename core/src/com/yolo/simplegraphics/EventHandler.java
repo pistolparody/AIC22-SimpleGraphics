@@ -6,6 +6,7 @@ import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.math.Vector2;
 
 import java.awt.*;
+import java.security.Key;
 
 import static com.yolo.simplegraphics.SimpleGraphics.*;
 
@@ -70,6 +71,20 @@ public class EventHandler implements InputProcessor
         {
             moveSpeed=0.16f;
             System.out.println("Agents movement speed is now 16X");
+        }
+        else if(keycode== Input.Keys.UP)
+        {
+            moveSpeed+=0.005f;
+            System.out.println("Agents movement speed is now "+(moveSpeed*100f)+"X");
+
+        }
+        else if(keycode== Input.Keys.DOWN)
+        {
+            if (moveSpeed-0.005>=0){
+                moveSpeed-=0.005f;
+            }
+
+            System.out.println("Agents movement speed is now "+(moveSpeed*100f)+"X");
         }
 
         textRect.update(getGameState());

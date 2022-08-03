@@ -17,6 +17,7 @@ public class Node
     private final int id;
     private final float x;
     private final float y;
+    private int connectedNodesCount=0;
 
     Node(int p_nodeId,float p_x,float p_y)
     {
@@ -28,6 +29,17 @@ public class Node
     public int getId() {return id;}
     public float getX() {return x;}
     public float getY() {return y;}
+
+    public void fillConnectedNodes(List<Edge> edgeList)
+    {
+        for (int i=0;i!=edgeList.size();i++)
+        {
+            if (edgeList.get(i).includesNode(id))
+            {
+                connectedNodesCount++;
+            }
+        }
+    }
 
     public Vector2 getProjectedVector2()
     {
@@ -68,6 +80,18 @@ public class Node
             if (p_everyNode.get(i).getY()<Node.minY) {minY = p_everyNode.get(i).getY();}
             if (p_everyNode.get(i).getY()>Node.maxY) {maxY = p_everyNode.get(i).getY();}
         }
+    }
+
+    public static void fillEveryCNC()
+    {
+        for (int i=0;i!=everyNode.size();i++)
+        {
+            everyNode.get(i).fillConnectedNodes(everyEdge);
+        }
+    }
+
+    public int getConnectedNodesCount() {
+        return connectedNodesCount;
     }
 
     public static Node findNodeById(int p_nodeId)

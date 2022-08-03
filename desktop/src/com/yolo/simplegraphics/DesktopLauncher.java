@@ -9,6 +9,10 @@ import static com.yolo.simplegraphics.SimpleGraphics.sourceFileAddress;
 // Please note that on macOS your application needs to be started with the -XstartOnFirstThread JVM argument
 public class DesktopLauncher {
 	public static void main (String[] arg) {
+
+		System.out.println("Use right and left arrow keys to change the turn\n"+
+							"Use NUM keys to change the agents moving speed");
+
 		int i=0;
 		for (i=0;i!=arg.length;i++)
 		{

@@ -60,6 +60,7 @@ public class Edge
     public int getType() {return type;}
 
 
+    public boolean includesNode(int nodeId) {return (node1Id==nodeId)||(node2Id==nodeId);}
 
     public static String getString(Edge p_edge)
     {
