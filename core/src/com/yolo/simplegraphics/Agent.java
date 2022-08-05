@@ -46,7 +46,6 @@ public class Agent
             this.isDead=isDead;
         }
 
-
         public String toString(){return getString(this);}
 
         public static String getString(STATE state)
@@ -58,7 +57,7 @@ public class Agent
 
     private double balance;
     private int nodeId;
-    private boolean isDead;
+    private int deadAfter;
     private int toNodeId;
     private Rectangle rect;
 
@@ -80,8 +79,13 @@ public class Agent
         this.team = team;
         this.type = type;
 
-        isDead = false;
+        deadAfter = -1;
         rect = new Rectangle(0,0,0,0);
+    }
+
+
+    public void setDeadAfter(int deadAfter) {
+        this.deadAfter = deadAfter;
     }
 
 
@@ -118,6 +122,11 @@ public class Agent
 
     public boolean requestMovement(int turnNumber)
     {
+        if ((this.deadAfter<=turnNumber)&&(this.deadAfter!=-1))
+        {
+//            System.out.println("Can't move cause I'm stuff");
+            return false;
+        }
         for (int i=0;i!=agentStateList.size();i++)
         {
             if (agentStateList.get(i).turnNumber==turnNumber)
@@ -138,14 +147,16 @@ public class Agent
         {
             if (agentStateList.get(i).turnNumber==turnNumber)
             {
-                nodeId = agentStateList.get(i).nodeId;
+                nodeId =  agentStateList.get(i).nodeId;
                 balance = agentStateList.get(i).balance;
-                isDead = agentStateList.get(i).isDead;
+
                 return true;
             }
         }
 
-        System.out.println("MovementNotFound: movement number "+turnNumber+" was not found for agent "+id+" in team "+team.text+ " and type "+type);
+
+        System.out.println("MovementNotFound: movement number "+turnNumber+" was not found for agent "+id+" in team "+team.text+ " and type "+type
+                +". He might be dead...");
 //        throw new Error("MovementNotFound: movement number "+turnNumber+" was not found for agent "+id+" in team "+team.text+ "and type "+type);
         return false;
     }
@@ -200,7 +211,9 @@ public class Agent
 
 //        if ((type==TYPE.THIEF)&&(!isVisible))
 //        {
-        if (this.isDead&&(type==TYPE.THIEF)){return false;}
+        if ((this.deadAfter!=-1)&&(this.deadAfter<=currentTurn)
+                &&(type==TYPE.THIEF)){return false;}
+
         if ((currentTurn!=0)&&(currentTurn!=1)&&(type==TYPE.THIEF))
 
         {

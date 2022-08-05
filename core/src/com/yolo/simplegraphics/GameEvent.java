@@ -1,8 +1,10 @@
 package com.yolo.simplegraphics;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static com.yolo.simplegraphics.SimpleGraphics.agentsAreMoving;
+import static com.yolo.simplegraphics.SimpleGraphics.everyAgent;
 
 // ------ GAME EVENTS ------ \\
 // STATUS_CHANGE
@@ -195,6 +197,43 @@ public class GameEvent
 
     public static class POLICE_CAUGHT_THIEVES
     {
+        final String timeStamp;
+        final int thiefId;
+        final int nodeId;
+        final int turnNumber;
+
+        final public static String text = "POLICES_CAUGHT_THIEVES";
+        public static ArrayList<POLICE_CAUGHT_THIEVES> policeCaughtThievesArrayList;
+
+        POLICE_CAUGHT_THIEVES(String timeStamp,int thiefId,int nodeId,int turnNumber)
+        {
+            this.timeStamp = timeStamp;
+            this.thiefId = thiefId;
+            this.nodeId = nodeId;
+            this.turnNumber = turnNumber;
+
+            for (int i=0;i!=everyAgent.size();i++)
+            {
+                if (everyAgent.get(i).id==this.thiefId)
+                {
+                    everyAgent.get(i).setDeadAfter(this.turnNumber);
+                    System.out.println("found some stuff");
+                }
+            }
+
+
+
+        }
+
+
+        public String toString(){return getString(this);}
+        public static String getString(POLICE_CAUGHT_THIEVES policeCaughtThieves)
+        {
+            return "< POLICE_CAUGHT_THIEVES: <thiefId:"+policeCaughtThieves.thiefId+"> <nodeId:"
+                    +policeCaughtThieves.nodeId+
+                    "> <timeStamp:"+ policeCaughtThieves.timeStamp+">";
+        }
+
 
     }
 

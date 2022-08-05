@@ -342,6 +342,7 @@ public class SimpleGraphics extends ApplicationAdapter {
 		GameEvent.TURN_CHANGE.turnChangeList = new ArrayList<>();
 		GameEvent.AGENT_MOVEMENT.agentMovementList = new ArrayList<>();
 		GameEvent.STATUS_CHANGE.statusChangeList = new ArrayList<>();
+		GameEvent.POLICE_CAUGHT_THIEVES.policeCaughtThievesArrayList = new ArrayList<>();
 
 		Node tempNode;
 		for (int i=0;i!=nodeJsonValues.get(0).size;i++)
@@ -375,6 +376,7 @@ public class SimpleGraphics extends ApplicationAdapter {
 		GameEvent.TURN_CHANGE turnChange;
 		GameEvent.AGENT_MOVEMENT agentMovement;
 		GameEvent.STATUS_CHANGE statusChange;
+		GameEvent.POLICE_CAUGHT_THIEVES policeCaughtThieves;
 
 		int id;
 		int nodeId;
@@ -444,6 +446,21 @@ public class SimpleGraphics extends ApplicationAdapter {
 						GameEvent.STATUS_CHANGE.statusChangeList.add(statusChange);
 
 					}
+					else if(contextJsonValues.get(i).getString("type").equals(GameEvent.POLICE_CAUGHT_THIEVES.text))
+					{
+						policeCaughtThieves = new GameEvent.POLICE_CAUGHT_THIEVES(contextJsonValues.get(i).getString("timeStamp"),
+								context.getInt("thiefId"),
+								context.getInt("nodeId"),
+								turnCounter);
+
+
+
+						logList.add("\n\t"+policeCaughtThieves.toString()+" turnCounter:"+turnCounter+"\n");
+						GameEvent.POLICE_CAUGHT_THIEVES.policeCaughtThievesArrayList.add(policeCaughtThieves);
+
+					}
+
+
 				}
 
 
