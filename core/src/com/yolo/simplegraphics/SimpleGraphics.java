@@ -28,6 +28,8 @@ import java.util.Locale;
 
 public class SimpleGraphics extends ApplicationAdapter {
 	//Map Related
+	public static boolean heldKey=false;
+
 	public static JsonReader jsonReader;
 	public static List<JsonValue> serverJsonValues;
 	public static List<JsonValue> nodeJsonValues;

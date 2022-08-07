@@ -14,12 +14,21 @@ public class EventHandler implements InputProcessor
 {
     @Override
     public boolean keyDown(int keycode) {
+        if (keycode== Input.Keys.SHIFT_LEFT)
+        {
+            heldKey=true;
+        }
+
         return false;
     }
 
     @Override
     public boolean keyUp(int keycode) {
 
+        if (keycode==Input.Keys.SHIFT_LEFT)
+        {
+            heldKey=false;
+        }
 
         if (keycode== Input.Keys.ESCAPE)
         {
@@ -78,7 +87,7 @@ public class EventHandler implements InputProcessor
             System.out.println("Agents movement speed is now "+(moveSpeed*100f)+"X");
 
         }
-        else if(keycode== Input.Keys.DOWN)
+        else if(keycode==Input.Keys.DOWN)
         {
             if (moveSpeed-0.005>=0){
                 moveSpeed-=0.005f;
@@ -102,6 +111,51 @@ public class EventHandler implements InputProcessor
     @Override
     public boolean touchDown(int screenX, int screenY, int pointer, int button) {
         if (button==Input.Buttons.LEFT){mouseHeld=true;}
+
+        if (agentsAreMoving){
+            System.out.println("Can't take commands while the agents are moving!");
+            return false;
+        }
+
+        if (!heldKey)
+        {
+            if (button==Input.Buttons.FORWARD)
+            {
+                if (currentTurn+1<=maxTurnNumber){
+                    currentTurn++;
+                    GameEvent.TURN_CHANGE.updateMap(currentTurn);
+                }
+
+            }
+            else if(button==Input.Buttons.BACK)
+            {
+                if (currentTurn-1>=0){
+                    currentTurn--;
+                    GameEvent.TURN_CHANGE.updateMap(currentTurn);
+                }
+            }
+        }
+        else
+        {
+            if (button==Input.Buttons.FORWARD)
+            {
+                moveSpeed+=(moveSpeed*0.1f+0.005f);
+                System.out.println("Agents movement speed is now "+(moveSpeed*100f)+"X");
+                textRect.update(getGameState());
+
+            }
+            else if(button==Input.Buttons.BACK)
+            {
+                if (moveSpeed-(moveSpeed*0.1f+0.005f)>=0){
+                    moveSpeed-=(moveSpeed*0.01f+0.005f);
+                }
+
+                System.out.println("Agents movement speed is now "+(moveSpeed*100f)+"X");
+                textRect.update(getGameState());
+
+            }
+        }
+
 
         return false;
     }
