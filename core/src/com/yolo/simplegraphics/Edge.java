@@ -44,7 +44,11 @@ public class Edge
             shape.setColor(Color.SKY);
         }
 
+        Payam = " ";
+        Payam += this.toString()+" ";
         Vector2 firstNodeVector2 = Node.findNodeById(node1Id).getProjectedVector2();
+        Payam += this.toString();
+
         Vector2 secondNodeVector2 = Node.findNodeById(node2Id).getProjectedVector2();
 
 

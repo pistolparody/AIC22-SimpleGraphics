@@ -125,6 +125,7 @@ public class EventHandler implements InputProcessor
                     currentTurn++;
                     GameEvent.TURN_CHANGE.updateMap(currentTurn);
                 }
+                textRect.update(getGameState());
 
             }
             else if(button==Input.Buttons.BACK)
@@ -133,6 +134,7 @@ public class EventHandler implements InputProcessor
                     currentTurn--;
                     GameEvent.TURN_CHANGE.updateMap(currentTurn);
                 }
+                textRect.update(getGameState());
             }
         }
         else

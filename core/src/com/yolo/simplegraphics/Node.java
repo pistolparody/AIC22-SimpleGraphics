@@ -96,6 +96,7 @@ public class Node
 
     public static Node findNodeById(int p_nodeId)
     {
+        Payam += "<"+p_nodeId+">";
         for (int i=0;i!=everyNode.size();i++)
         {
             if (everyNode.get(i).getId()==p_nodeId)
@@ -103,8 +104,8 @@ public class Node
                 return everyNode.get(i);
             }
         }
-
-        throw new Error("Could not find requested node");
+        writeLogs();
+        throw new Error("Could not find the requested node " + p_nodeId + " " + Payam);
     }
 
     public static String getString(Node p_node)

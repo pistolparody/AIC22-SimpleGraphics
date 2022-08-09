@@ -86,6 +86,7 @@ public class SimpleGraphics extends ApplicationAdapter {
 	public static Vector2 uiMouseVector2 = new Vector2(0,0);
 	public static boolean mouseHeld=false;
 
+	public static String Payam="";
 
 
 	@Override
@@ -354,6 +355,7 @@ public class SimpleGraphics extends ApplicationAdapter {
 			tempNode = new Node(tempJV.getInt("id"),tempJV.get("position").getFloat("x"),tempJV.get("position").getFloat("z"));
 
 			everyNode.add(tempNode);
+			logList.add(" Node " + tempNode.toString()+ " ");
 
 		}
 
@@ -524,7 +526,7 @@ public class SimpleGraphics extends ApplicationAdapter {
 		}
 	}
 
-	public void writeLogs()
+	public static void writeLogs()
 	{
 		logFile.writeString("\nLOGS:\n",true);
 		for (int i=0;i!=logList.size();i++)

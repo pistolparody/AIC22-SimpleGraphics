@@ -136,7 +136,9 @@ public class Agent
             }
         }
 
-        System.out.println("requestMovementError: movement number "+turnNumber+" was not found for agent "+id+" in team "+team.text+ " and type "+type);
+        toNodeId=nodeId;
+
+        System.out.println("requestMovementWarning: movement number "+turnNumber+" was not found for agent "+id+" in team "+team.text+ " and type "+type);
 //        throw new Error("MovementNotFound: movement number "+turnNumber+" was not found for agent "+id+" in team "+team.text+ "and type "+type);
         return false;
     }
@@ -168,13 +170,15 @@ public class Agent
 
     public boolean draw()
     {
+        Payam = " ";
 
-
-        Vector2 point = Node.findNodeById(nodeId).getProjectedVector2();
+        Payam += this.toString()+" "+this.nodeId+" ";
+        Vector2 point = Node.findNodeById(this.nodeId).getProjectedVector2();
 
         if (agentsAreMoving)
         {
-            Vector2 point2 = Node.findNodeById(toNodeId).getProjectedVector2();
+            Payam = this.toString()+" "+this.nodeId+" ";
+            Vector2 point2 = Node.findNodeById(this.toNodeId).getProjectedVector2();
             point.lerp(point2,moveAlpha);
         }
 
