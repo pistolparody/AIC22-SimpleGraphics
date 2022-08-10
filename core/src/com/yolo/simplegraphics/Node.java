@@ -104,8 +104,12 @@ public class Node
                 return everyNode.get(i);
             }
         }
-        writeLogs();
-        throw new Error("Could not find the requested node " + p_nodeId + " " + Payam);
+
+        System.out.println("Warning, Could not find node "+p_nodeId+" in "+Payam);
+//        errorsList.add("Warning, Could not find node "+p_nodeId+" in "+Payam);
+        return everyNode.get(0);
+//        writeLogs();
+//        throw new Error("Could not find the requested node " + p_nodeId + " " + Payam);
     }
 
     public static String getString(Node p_node)
