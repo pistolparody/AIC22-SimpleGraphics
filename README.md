@@ -4,7 +4,7 @@
 
 - [About](#about)
 - [How to use](#usage)
-- [In case of bugs](#usage)
+- [In case of bugs](#bugs)
 
 ## About <a name = "about"></a>
 
