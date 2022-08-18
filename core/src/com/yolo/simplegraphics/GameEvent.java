@@ -269,7 +269,7 @@ public class GameEvent
                 if (everyAgent.get(i).id==this.thiefId)
                 {
                     everyAgent.get(i).setDeadAfter(this.turnNumber);
-                    System.out.println("found some stuff");
+
                 }
             }
 
