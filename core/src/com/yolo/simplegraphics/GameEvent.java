@@ -38,7 +38,43 @@ import static com.yolo.simplegraphics.SimpleGraphics.everyAgent;
     // nodeId
 public class GameEvent
 {
+    public static class AGENT_SEND_MESSAGE
+    {
+        final String timeStamp;
+        final String payam;
+        final int agentId;
+        final double balance;
+        final Agent.TEAM team;
+        final Agent.TYPE type;
+        final int turnNumber;
 
+        public static final String text = "AGENT_SEND_MESSAGE";
+        public static List<AGENT_SEND_MESSAGE> agentSendMessageList=new ArrayList<>();
+
+
+
+        AGENT_SEND_MESSAGE(String timeStamp, String payam, int agentId, double balance, Agent.TEAM team,Agent.TYPE type,int turnNumber)
+        {
+            this.timeStamp = timeStamp;
+            this.payam = payam;
+            this.agentId = agentId;
+            this.balance = balance;
+            this.team = team;
+            this.type = type;
+            this.turnNumber = turnNumber;
+            agentSendMessageList.add(this);
+        }
+
+        public String getAnnounce() {
+            return "A "+type.text+" agent with id "+agentId+" from the "+team.text+" team says : "+payam;
+        }
+        public String toString(){return getString(this);}
+        public static String getString(AGENT_SEND_MESSAGE agentSendMessage)
+        {
+            return "<team:"+agentSendMessage.team.text
+                    +"> <type:"+agentSendMessage.type.text+"> <id:"+agentSendMessage.agentId+"> <text:"+ agentSendMessage.payam+">";
+        }
+    }
     public static class STATUS_CHANGE
     {
         final String timeStamp;
@@ -53,6 +89,7 @@ public class GameEvent
             this.timeStamp=timeStamp;
             this.fromStatus=fromStatus;
             this.toStatus=toStatus;
+
         }
 
 
@@ -122,8 +159,23 @@ public class GameEvent
 
             SimpleGraphics.isHoovering=false;
             agentsAreMoving = true;
+            String buffer = "Current turnNumber : "+turnNumber+"\n";
+            boolean hasTalk=false;
 
-            System.out.println("Current turnNumber : "+turnNumber);
+            for (int i=0;i!= AGENT_SEND_MESSAGE.agentSendMessageList.size();i++) {
+                if (AGENT_SEND_MESSAGE.agentSendMessageList.get(i).turnNumber == turnNumber) {
+                    hasTalk=true;
+                    buffer+=AGENT_SEND_MESSAGE.agentSendMessageList.get(i).getAnnounce()+"\n";
+//                    buffer+="Agent talked : " + AGENT_SEND_MESSAGE.agentSendMessageList.get(i).toString()+"\n";
+                }
+            }
+
+            if (!hasTalk){buffer+="Nobody talked in this turn";}
+
+
+
+            System.out.println(buffer);
+
 
             if ((turnNumber==0)||(turnNumber==1))
             {

@@ -463,6 +463,23 @@ public class SimpleGraphics extends ApplicationAdapter {
 						GameEvent.POLICE_CAUGHT_THIEVES.policeCaughtThievesArrayList.add(policeCaughtThieves);
 
 					}
+					else if(contextJsonValues.get(i).getString("type").equals(GameEvent.AGENT_SEND_MESSAGE.text))
+					{
+						if (context.getString("type").equals(Agent.TYPE.POLICE.text)) {type = Agent.TYPE.POLICE;}
+						else{type = Agent.TYPE.THIEF;}
+						if (context.getString("team").equals(Agent.TEAM.FIRST.text)) {team = Agent.TEAM.FIRST;}
+						else{team = Agent.TEAM.SECOND;}
+
+						new GameEvent.AGENT_SEND_MESSAGE
+								(contextJsonValues.get(i).getString("timeStamp"),
+										context.getString("text"),
+										context.getInt("agentId"),
+										context.getDouble("balance"),
+										team,
+										type,
+										turnCounter
+								);
+					}
 
 
 				}
