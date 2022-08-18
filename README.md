@@ -3,13 +3,22 @@
 ## Table of Contents
 
 - [About](#about)
+- [Showcase](#showcase)
 - [How to use](#usage)
-- [In case of bugs](#usage)
+- [In case of bugs](#bugs)
+
 
 ## About <a name = "about"></a>
 
 This is a fast and light weight graphics user interface for<a href="https://aichallenge.ir"> AIChallenge 2022 </a>,
 that you can use to quickly analyze a match.
+
+## Showcase <a name="showcase"></a>
+
+
+![Screenshot_20220812_044156](https://user-images.githubusercontent.com/101744913/184329074-4e670510-beab-4d30-8aad-bbe19b4b2684.png)
+
+![Screenshot_20220812_044231](https://user-images.githubusercontent.com/101744913/184329083-08c8a866-8a05-4111-9f8f-65489d0e3db2.png)
 
 
 ## Usage <a name = "usage"></a>
