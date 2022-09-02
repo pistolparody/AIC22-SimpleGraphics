@@ -11,7 +11,7 @@ buildscript {
     dependencies {
         classpath 'org.wisepersist:gwt-gradle-plugin:1.1.16'
         classpath 'org.gretty:gretty:3.0.7'
-        classpath 'com.android.tools.build:gradle:7.0.4'
+//        classpath 'com.android.tools.build:gradle:7.0.4'
         
 
     }
@@ -54,21 +54,7 @@ project(":desktop") {
     }
 }
 
-project(":android") {
-    apply plugin: "com.android.application"
 
-    configurations { natives }
-
-    dependencies {
-        implementation project(":core")
-        api "com.badlogicgames.gdx:gdx-backend-android:$gdxVersion"
-        natives "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-armeabi-v7a"
-        natives "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-arm64-v8a"
-        natives "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-x86"
-        natives "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-x86_64"
-        
-    }
-}
 
 project(":html") {
     apply plugin: "java-library"

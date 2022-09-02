@@ -25,7 +25,9 @@ public class Agent
     enum TYPE
     {
         POLICE("POLICE","POLICE_TURN"),
-        THIEF("THIEF","THIEF_TURN");
+        THIEF("THIEF","THIEF_TURN"),
+        JOKER("JOKER","JOKER_TURN"),
+            BATMAN("BATMAN","BATMAN_TURN");
 
         public final String text;
         public final String turnText;
@@ -60,7 +62,7 @@ public class Agent
     private int deadAfter;
     private int toNodeId;
     private Rectangle rect;
-
+    public float scale;
 
     public final int id;
     public final TEAM team;
@@ -78,7 +80,7 @@ public class Agent
         this.id = id;
         this.team = team;
         this.type = type;
-
+        this.scale = 0.1f;
         deadAfter = -1;
         rect = new Rectangle(0,0,0,0);
     }
@@ -198,7 +200,7 @@ public class Agent
             else {tempSprite=blueCopSprite;}
         }
 
-        float idealHeight = winHeight*0.1f*camera.zoom;
+        float idealHeight = winHeight*this.scale*camera.zoom;
         float currentHeight = tempSprite.getHeight();
 
         float newWidthScale = idealHeight / currentHeight;

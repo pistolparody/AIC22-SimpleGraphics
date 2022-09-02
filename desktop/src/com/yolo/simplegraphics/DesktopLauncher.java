@@ -27,7 +27,7 @@ public class DesktopLauncher {
 		Lwjgl3ApplicationConfiguration config = new Lwjgl3ApplicationConfiguration();
 		config.setForegroundFPS(60);
 		config.setTitle("AIC22-SimpleGraphics");
-		config.setDecorated(false);
+//		config.setDecorated(false);
 		new Lwjgl3Application(new SimpleGraphics(), config);
 	}
 }

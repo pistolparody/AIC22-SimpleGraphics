@@ -490,7 +490,15 @@ public class SimpleGraphics extends ApplicationAdapter {
 				{
 					if (contextJsonValues.get(i).getString("type").equals("READINESS_DECLARATION"))
 					{
-						if (context.getString("type").equals(Agent.TYPE.POLICE.text))
+						float scale = 0.1f;
+						if (context.getString("type").equals(Agent.TYPE.BATMAN.text) ||
+								context.getString("type").equals(Agent.TYPE.JOKER.text)){
+							System.out.println("Found some DC characters!");
+							scale = 0.15f;
+						}
+						if (context.getString("type").equals(Agent.TYPE.POLICE.text)||context.getString("type").equals(
+								Agent.TYPE.BATMAN.text
+						))
 						{
 							type = Agent.TYPE.POLICE;
 						}
@@ -506,11 +514,13 @@ public class SimpleGraphics extends ApplicationAdapter {
 							team = Agent.TEAM.SECOND;
 						}
 
+
 						id = context.getInt("agentId");
 						nodeId = context.getInt("nodeId");
 						balance = context.getDouble("balance");
 
 						agent = new Agent(id,team,type,nodeId,balance);
+						agent.scale = scale;
 						logList.add(agent.toString()+" turnCounter:"+turnCounter);
 						everyAgent.add(agent);
 					}
